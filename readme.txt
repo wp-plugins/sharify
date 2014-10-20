@@ -3,8 +3,8 @@ Contributors: Mehedi
 Tags: share,social,sharing buttons,responsive sharing buttons,social network
 Requires at least: 3.0
 Tested up to: 3.6
-Stable tag: 1.0
-Version: 1.0
+Stable tag: 1.1
+Version: 1.1
 License: GPL
 
 Sharify will give you the perfect sharing buttons for your website. It is fast, responsive and you'll love it!
@@ -45,5 +45,9 @@ Installing Sharify is easy! Just follow this steps:
 3. The smartphone view of the plugin
 
 == Changelog ==
+Version 1.1
+- Fixed bugs
+- Removed auto additon of the sharebutton. (use [sharify] to display the buttons)
+-----------------------------
 Version 1.0
 - Initial Release

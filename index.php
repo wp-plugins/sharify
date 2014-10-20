@@ -3,7 +3,7 @@
 Plugin Name: Sharify
 Plugin URL: http://dip223.com/sharify
 Description: Sharify will give you the perfect sharing buttons for your website. It is fast, responsive and you\'ll love it!
-Version: 1.0
+Version: 1.1
 Author: Mehedi
 Author URI: http://twitter.com/imhdip
 
@@ -37,18 +37,5 @@ function sharify_file()
 }
 
 add_action('init', 'sharify_register_shortcode');
-
-
-add_filter('the_content', 'sharify_show_buttons');
-
-function sharify_show_buttons($content)
-{
-    if (is_single()) {
-        echo get_the_content();
-        return do_shortcode('[sharify]');
-    }
-    
-    return $content;
-}
 
 ?>
