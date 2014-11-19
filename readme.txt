@@ -14,7 +14,7 @@ Just another sharing buttons plugin. Simple but awesome.
 Sharify lets you add responsive and fast sharing buttons to our WordPress websie. The plugin is fast and 
 gets the job done.
 
-Features
+<strong>Features</strong><br>
 
 * Fast
 * Responsive
