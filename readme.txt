@@ -1,53 +1,66 @@
-=== Sharify ===
-Contributors: Mehedi
-Tags: share,social,sharing buttons,responsive sharing buttons,social network
-Requires at least: 3.0
-Tested up to: 3.6
-Stable tag: 1.1
-Version: 1.1
-License: GPL
+=== Contact Form 7 ===
+Contributors: imehedidip
+Tags: sharify, share buttons, respnonsive, sharing buttons, flat share buttons, share counts, shareoholic, responsive sharing buttons
+Requires at least: 3.5
+Tested up to: 4.0
+Stable tag: 1.2
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Sharify will give you the perfect sharing buttons for your website. It is fast, responsive and you'll love it!
+Just another sharing buttons plugin. Simple but awesome.
 
 == Description ==
-Sharify will give you the perfect sharing buttons you've been looking for! It is responsive, well-designed and it simply looks awesome! It is really easy to setup as well :)
 
-Features
-- Responsive
-- Fast
-- Shortcode support
+Sharify lets you add responsive and fast sharing buttons to our WordPress websie. The plugin is fast and 
+Contact Form 7 can manage multiple contact forms, plus you can customize the form and the mail contents flexibly with simple markup. The form supports Ajax-powered submitting, CAPTCHA, Akismet spam filtering and so on.
 
-Use the shortcode "[sharify]" to display the buttons anywhere you want!
+== Features ==
 
-Thanks for using my plugin :) I will be updating the plugin with some new features soon.
+* Fast
+* Responsive
+* Beautiful
+* Share counts
+
+
+If you have any feature suggestions, please let me know at Twitter: [@mehedih_](http://twitter.com/mehedih_)
 
 == Installation ==
-Installing Sharify is easy! Just follow this steps:
 
-1. Login to your WordPress Dashboard
-2. Plugins>Add New>Upload
-3. Select "sharify.zip" and hit Upload
-4. Activate the plugin and that's it! It will now appear on your posts!
+1. Upload the entire `sharify` folder to the `/wp-content/plugins/` directory.
+1. Activate the plugin through the 'Plugins' menu in WordPress.
+
+Use [sharify] to display the sharing buttons.
 
 == Frequently Asked Questions ==
-1. Can I remove any social network?
-- Unfortunately, you can't remove a social network yet. However, I will add the feature on the next version.
 
-2. Is there any shortcode?
-- Yes. Just use "[sharify]"
+How can I display the plugin?
 
-3. I want to request a sharing button. How can I do that?
-- Request it on the Support tab.
+Use [sharify] shortcode to display the plugin.
+
+When is the next update coming?
+
+Next week ;)
 
 == Screenshots ==
-1. The desktop view of the plugin
-2. The tablet view of the plugin
-3. The smartphone view of the plugin
+
+1. screenshot-1.png 
+2. screenshot-2.png 
+3. screenshot-3.png 
 
 == Changelog ==
-Version 1.1
-- Fixed bugs
-- Removed auto additon of the sharebutton. (use [sharify] to display the buttons)
------------------------------
-Version 1.0
-- Initial Release
+
+For more information, see [Releases](http://contactform7.com/category/releases/).
+
+= 1.2 =
+
+* Fixed LinkedIn button issue
+* Changed Facebook Like to Facebook Share
+
+= 1.1 =
+
+* Fixed bugs
+* Performance Improvements
+
+= 1.0 =
+
+* Initial Release

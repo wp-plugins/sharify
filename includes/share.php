@@ -27,7 +27,7 @@ echo '
 			<div class="si-button si-button-facebook" title="Share link on Facebook">
 				<div class="si-share-main">
 					<i class="sharify-facebook sharify"></i>
-					<p class="si-share-text">Like</p>
+					<p class="si-share-text">Share</p>
 				</div>
 				<div class="si-share-counter"><p class="si-share-count-text">' . $facebookCount['share_count'] . '</p></div>
 			</div>
@@ -38,7 +38,7 @@ echo '
 			<div class="si-button si-button-gplus" title="Share link on Google+">
 				<div class="si-share-main">
 					<i class="sharify-gplus sharify"></i>
-					<p class="si-share-text">Share</p>
+					<p class="si-share-text">+1</p>
 				</div>
 				<div class="si-share-counter"><p class="si-share-count-text">' . get_plusones_si($url) . '</p></div>
 			</div>
@@ -58,7 +58,7 @@ echo '
 			</div>
 			</a>
 
-			<a class="si-share-box" href="https://linkedin.com/shareArticle?mini=true&url=' . $title . ' | ' . $url . ' &via=' . urlencode($twetter_user ? $twetter_user : get_bloginfo('name')) . '" onclick="if(!document.getElementById(\'td_social_networks_buttons\')){window.open(this.href, \'mywin\',
+			<a class="si-share-box" href="https://www.linkedin.com/shareArticle?mini=true&url=' . $url . '&title='. $title .'" onclick="if(!document.getElementById(\'td_social_networks_buttons\')){window.open(this.href, \'mywin\',
 			\'left=50,top=50,width=600,height=350,toolbar=0\'); return false;}" >
 			<div class="si-button-small si-button-linkedin" title="Share link on LinkedIn">
 				<i class="sharify-linkedin sharify sharify-small"></i>

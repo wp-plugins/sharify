@@ -2,16 +2,31 @@
 /*
 Plugin Name: Sharify
 Plugin URL: http://dip223.com/sharify
-Description: Sharify will give you the perfect sharing buttons for your website. It is fast, responsive and you\'ll love it!
-Version: 1.1
-Author: Mehedi
-Author URI: http://twitter.com/imhdip
+Description: Just another sharing buttons plugin. Simple but awesome.
+Version: 1.2
+Author: imehedidip
+Author URI: http://twitter.com/meehedih_
 
 This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.
 This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
 You should have received a copy of the GNU General Public License along with this program; if not, write to the Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
 Thanks for using my plugin!
+
+ =====================================
+ =========BROUGHT TO YOU BY===========
+ =====================================
+ ==    _______     __    _______    ==
+ ==   /\  ___ \   /\ \  /\  ___ \   ==
+ ==   \ \ \  \ \  \ \ \ \ \ \_/ /   ==
+ ==    \ \ \__\ \  \ \ \ \ \  _/    ==
+ ==     \ \______\  \ \_\ \ \_\     ==
+ ==      \/______/   \/_/  \/_/     ==
+ ==                                 ==
+ =====================================
+ ==============@IMHDIP================
+ =====================================
+
 */
 
 // Load CSS
