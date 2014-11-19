@@ -1,4 +1,4 @@
-=== Contact Form 7 ===
+=== Sharify ===
 Contributors: imehedidip
 Tags: sharify, share buttons, respnonsive, sharing buttons, flat share buttons, share counts, shareoholic, responsive sharing buttons
 Requires at least: 3.5
@@ -12,9 +12,9 @@ Just another sharing buttons plugin. Simple but awesome.
 == Description ==
 
 Sharify lets you add responsive and fast sharing buttons to our WordPress websie. The plugin is fast and 
-Contact Form 7 can manage multiple contact forms, plus you can customize the form and the mail contents flexibly with simple markup. The form supports Ajax-powered submitting, CAPTCHA, Akismet spam filtering and so on.
+gets the job done.
 
-== Features ==
+Features
 
 * Fast
 * Responsive
@@ -48,8 +48,6 @@ Next week ;)
 3. screenshot-3.png 
 
 == Changelog ==
-
-For more information, see [Releases](http://contactform7.com/category/releases/).
 
 = 1.2 =
 
