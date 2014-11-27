@@ -1,9 +1,9 @@
 === Sharify ===
 Contributors: imehedidip
 Tags: sharify, share buttons, respnonsive, sharing buttons, flat share buttons, share counts, shareoholic, responsive sharing buttons
-Requires at least: 3.5
-Tested up to: 4.0
-Stable tag: 1.2
+Requires at least: 3.0
+Tested up to: 3.0
+Stable tag: 1.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -18,9 +18,9 @@ gets the job done.
 
 * Fast
 * Responsive
+* Control Panel
 * Beautiful
 * Share counts
-
 
 If you have any feature suggestions, please let me know at Twitter: [@mehedih_](http://twitter.com/mehedih_)
 
@@ -32,6 +32,10 @@ If you have any feature suggestions, please let me know at Twitter: [@mehedih_](
 Use [sharify] to display the sharing buttons.
 
 == Frequently Asked Questions ==
+
+Can I hide a sharing button?
+
+Sharify lets you show or hide any button you want. Just navigate to Dashboard > Settings > Sharify Settings.
 
 How can I display the plugin?
 
@@ -48,6 +52,12 @@ Next week ;)
 3. screenshot-3.png 
 
 == Changelog ==
+
+= 1.3 - THE BIG ONE =
+
+* Control Panel - You can now control any buttons you want! (hide or show). More options coming on 1.4!
+* Share Count feature has been optimised for better performace.
+* CSS Fixes
 
 = 1.2 =
 
