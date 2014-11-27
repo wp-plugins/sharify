@@ -149,7 +149,7 @@ function sharify_display_button_buttons($sharify_buttons = "")
 			</div>
 			</a>';
 	
-	$sharify_buttons .= '</div';
+	$sharify_buttons .= '</div>';
     
 	return $sharify_buttons;
 }
