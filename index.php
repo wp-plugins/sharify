@@ -3,7 +3,7 @@
 Plugin Name: Sharify
 Plugin URL: http://dip223.com/sharify
 Description: Just another sharing buttons plugin. Simple but awesome.
-Version: 1.3
+Version: 1.4
 Author: imehedidip
 Author URI: http://twitter.com/mehedih_
 
@@ -77,17 +77,28 @@ function sharify_show_buttons_shortcode()
 }
 add_shortcode('sharify', 'sharify_show_buttons_shortcode');
 
-//Get Permalink
-$sharify_url = get_permalink();
+//Function for getting the image
+function sharify_catch_that_image() {
+  global $post, $posts;
+  $first_img = '';
+  ob_start();
+  ob_end_clean();
+  $output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $post->post_content, $matches);
+  $first_img = $matches[1][0];
+
+
+  return $first_img;
+}
 
 //Sharify Buttons
+
 function sharify_display_button_buttons($sharify_buttons = "")
 {
 	$sharify_buttons .= '
 		<div class="si-share-box">';
 
 	if ( 1 == get_option('display_button_twitter') ) 
-		$sharify_buttons .= '<a href="https://twitter.com/intent/tweet?text=' . $title . ' - ' . $sharify_url . '" onclick="window.open(this.href, \'mywin\',
+		$sharify_buttons .= '<a href="https://twitter.com/intent/tweet?text=' . get_the_title() . ' - ' . get_permalink() . '" onclick="window.open(this.href, \'mywin\',
 		    \'left=50,top=50,width=600,height=350,toolbar=0\'); return false;">
 			<div class="si-button si-button-twitter" title="Tweet on Twitter">
 				<div class="si-share-main">
@@ -98,7 +109,7 @@ function sharify_display_button_buttons($sharify_buttons = "")
 			</div>
 			</a>';
 	if ( 1 == get_option('display_button_facebook') ) 
-		$sharify_buttons .= '<a href="http://www.facebook.com/sharer.php?u=' . urlencode($sharify_url) . '" onclick="window.open(this.href, \'mywin\',
+		$sharify_buttons .= '<a href="http://www.facebook.com/sharer.php?u=' . urlencode(get_permalink()) . '" onclick="window.open(this.href, \'mywin\',
 			\'left=50,top=50,width=600,height=350,toolbar=0\'); return false;">
 			<div class="si-button si-button-facebook" title="Share link on Facebook">
 				<div class="si-share-main">
@@ -109,7 +120,7 @@ function sharify_display_button_buttons($sharify_buttons = "")
 			</div>
 			</a>';
 	if ( 1 == get_option('display_button_google') ) 
-		$sharify_buttons .= '<a href="http://plus.google.com/share?url=' . $sharify_url . '" onclick="window.open(this.href, \'mywin\',
+		$sharify_buttons .= '<a href="http://plus.google.com/share?url=' . get_permalink() . '" onclick="window.open(this.href, \'mywin\',
 			\'left=50,top=50,width=600,height=350,toolbar=0\'); return false;">
 			<div class="si-button si-button-gplus" title="Share link on Google+">
 				<div class="si-share-main">
@@ -120,29 +131,29 @@ function sharify_display_button_buttons($sharify_buttons = "")
 			</div>
 			</a>';
 	if ( 1 == get_option('display_button_pinterest') ) 
-		$sharify_buttons .= '<a class="si-share-box" href="http://pinterest.com/pin/create/button/?url=' . $sharify_url . '&amp;media=' . (!empty($image[0]) ? $image[0] : '') . '" onclick="window.open(this.href, \'mywin\',
+		$sharify_buttons .= '<a class="si-share-box" href="http://pinterest.com/pin/create/button/?url=' . get_permalink() . '&media=' . sharify_catch_that_image() . '' . '&description='. get_the_title() .' - ' . get_permalink(). '" onclick="window.open(this.href, \'mywin\',
 			\'left=50,top=50,width=600,height=350,toolbar=0\'); return false;">
 			<div class="si-button-small si-button-pinterest" title="Pin it on Pinterest">
 				<i class="sharify-pinterest sharify sharify-small"></i>
 			</div>
 			</a>';
 	if ( 1 == get_option('display_button_linkedin') ) 
-		$sharify_buttons .= '<a class="si-share-box" href="https://www.linkedin.com/shareArticle?mini=true&url=' . $sharify_url . '&title='. $title .'" onclick="if(!document.getElementById(\'td_social_networks_buttons\')){window.open(this.href, \'mywin\',
+		$sharify_buttons .= '<a class="si-share-box" href="https://www.linkedin.com/shareArticle?mini=true&url=' . get_permalink() . '&title='. get_the_title() .'" onclick="if(!document.getElementById(\'td_social_networks_buttons\')){window.open(this.href, \'mywin\',
 			\'left=50,top=50,width=600,height=350,toolbar=0\'); return false;}" >
 			<div class="si-button-small si-button-linkedin" title="Share link on LinkedIn">
 				<i class="sharify-linkedin sharify sharify-small"></i>
 			</div>
 			</a>';
 	if ( 1 == get_option('display_button_reddit') ) 
-		$sharify_buttons .= '<a class="si-share-box" href="http://reddit.com/submit?url=' . $sharify_url . '" onclick="window.open(this.href, \'mywin\',
-			\'left=50,top=50,width=600,height=350,toolbar=0\'); return false;">
+		$sharify_buttons .= '<a class="si-share-box" href="http://reddit.com/submit?url=' . get_permalink() . '" onclick="window.open(this.href, \'mywin\',
+			\'left=50,top=50,width=950,height=450,toolbar=0\'); return false;">
 			<div class="si-button-small si-button-reddit"  title="Share link on Reddit">
 				<i class="sharify-reddit sharify sharify-small"></i>
 			</div>
 			</a>';
 	
 	if ( 1 == get_option('display_button_pocket') ) 
-		$sharify_buttons .= '<a href="https://getpocket.com/save?url=' . urlencode($sharify_url) . '&amp;media=' . (!empty($image[0]) ? $image[0] : '') . '" onclick="window.open(this.href, \'mywin\',
+		$sharify_buttons .= '<a href="https://getpocket.com/save?url=' . urlencode(get_permalink()) . '&media=' . sharify_catch_that_image() . '" onclick="window.open(this.href, \'mywin\',
 			\'left=50,top=50,width=600,height=350,toolbar=0\'); return false;">
 			<div class="si-button-small si-button-pocket" title="Save to Pocket">
 				<i class="sharify-pocket sharify-small sharify"></i>

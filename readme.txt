@@ -3,16 +3,16 @@ Contributors: imehedidip
 Tags: sharify, share buttons, respnonsive, sharing buttons, flat share buttons, share counts, shareoholic, responsive sharing buttons
 Requires at least: 3.0
 Tested up to: 4.1
-Stable tag: 1.3
+Stable tag: 1.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Just another sharing buttons plugin. Simple but awesome.
+Sharify is a simple, fast and feature-packed sharing butons plugin for your WordPress site!
 
 == Description ==
 
 Sharify lets you add responsive and fast sharing buttons to our WordPress websie. The plugin is fast and 
-gets the job done.
+gets the job done. 
 
 <strong>Features</strong><br>
 
@@ -52,6 +52,12 @@ Next week ;)
 3. screenshot-3.png 
 
 == Changelog ==
+
+= 1.4=
+
+Sorry, the last update was a mess!
+
+* Twitter, Facebok, Google+, Reddit, Pocket, LinkedIn, Pinterest buttons fixed!
 
 = 1.3 - THE BIG ONE =
 
