@@ -53,9 +53,9 @@ Next week ;)
 
 == Changelog ==
 
-= 1.4=
+= 1.4 =
 
-Sorry, the last update was a mess!
+<strong>Sorry, the last update was a mess! The latest update (v1.4) fixes all the bugs.</strong>
 
 * Twitter, Facebok, Google+, Reddit, Pocket, LinkedIn, Pinterest buttons fixed!
 
