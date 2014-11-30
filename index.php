@@ -3,7 +3,7 @@
 Plugin Name: Sharify
 Plugin URL: http://dip223.com/sharify
 Description: Just another sharing buttons plugin. Simple but awesome.
-Version: 1.4
+Version: 1.5
 Author: imehedidip
 Author URI: http://twitter.com/mehedih_
 
@@ -174,4 +174,14 @@ function sharify_show_buttons_on_single($sharify_buttons)
 	return $sharify_buttons;
 }
 add_filter('the_content', 'sharify_show_buttons_on_single');
+
+
+function load_custom_wp_admin_style() {
+        wp_register_style('sharify_js_material', plugin_dir_url( __FILE__ ) . 'admin/css/sharify_admin.css' );
+        wp_enqueue_style( 'sharify_js_material' );
+        wp_register_script('sharify_js_material', plugin_dir_url( __FILE__ ) . 'admin/js/sharify_admin.js' );
+        wp_enqueue_script('sharify_js_material');
+}
+add_action( 'admin_enqueue_scripts', 'load_custom_wp_admin_style' );
+
 ?>
