@@ -47,12 +47,12 @@
 			</div>
 			<div id="customise" class="box">
 				<div class="wrap">		
-					<br><h2>#soon</h2><br>
+					<br><label class="sec-title"><p>#SOON</p></label><br>
 				</div>
 			</div>
 			<div id="others" class="box">
 				<div class="wrap">		
-					<br><h2>#soon</h2><br>
+					<br><label class="sec-title"><p>#SOON</p></label><br>
 				</div>
 			</div>
 			<div id="changelog" class="box">
@@ -83,7 +83,7 @@
 			</div>
 			<div id="share" class="box">
 				<div class="wrap">		
-					<br><h2>#soon</h2><br>
+					<br><label class="sec-title"><p>#SOON</p></label><br>
 				</div>
 			</div>
 			<div id="follow" class="box">
