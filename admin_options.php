@@ -52,13 +52,21 @@
 			</div>
 			<div id="others" class="box">
 				<div class="wrap">		
-					<br><label class="sec-title"><p>#SOON</p></label><br>
+					<label class="sec-title"><p>FONTS</p></label><br>
 				</div>
 			</div>
 			<div id="changelog" class="box">
+				<label class="sec-title"><p>1.5.2</p></label><br>
+				<ul>
+					<li>Bug fixes for 1.5.</li>
+				</ul><br>
+				<label class="sec-title"><p>1.5</p></label><br>
+				<ul>
+					<li>New control panel design!</li>
+				</ul><br>
 				<label class="sec-title"><p>1.4</p></label><br>
 				<ul>
-					<li>New UI interface for control panel</li>
+					<li>Twitter, Facebok, Google+, Reddit, Pocket, LinkedIn, Pinterest buttons fixed!</li>
 				</ul><br>
 				<label class="sec-title"><p>1.3</p></label><br>
 				<ul>

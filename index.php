@@ -3,7 +3,7 @@
 Plugin Name: Sharify
 Plugin URL: http://dip223.com/sharify
 Description: Just another sharing buttons plugin. Simple but awesome.
-Version: 1.5
+Version: 1.5.2
 Author: imehedidip
 Author URI: http://twitter.com/mehedih_
 
@@ -32,9 +32,8 @@ Thanks for using my plugin!
 //Load the CSS
 function sharify_css()
 {
-    wp_register_style('sharify_stylesheet', plugins_url('includes/css/sharify.css', __FILE__));
+	wp_register_style('sharify_stylesheet', plugins_url('includes/css/sharify.css', __FILE__));
     wp_enqueue_style('sharify_stylesheet');
-	
     wp_register_style('icons_stylesheet', plugins_url('includes/icons/css/sharify.css', __FILE__));
     wp_enqueue_style('icons_stylesheet');
 }
@@ -48,12 +47,14 @@ include('includes/share_count.php');
 
 //Activate Sharify options
 function activate_sharify() {	
-	add_option('display_button_facebook', 1);
-	add_option('display_button_linkedin', 1);
-	add_option('display_button_twitter'	, 1);
-	add_option('display_button_reddit'	, 1);
-	add_option('display_button_google'	, 1);
-	add_option('display_button_pocket'	, 1);
+	add_option('display_button_facebook'	, 1);
+	add_option('display_button_linkedin'	, 1);
+	add_option('display_button_twitter'		, 1);
+	add_option('display_button_reddit'		, 1);
+	add_option('display_button_google'	    , 1);
+	add_option('display_buttons_under_post'	, 1);
+	add_option('display_button_pocket'		, 1);
+	add_option('load_google_fonts'			, 1);
 }
 
 //Deactivate Sharify options
@@ -64,6 +65,8 @@ function deactive_sharify() {
 	delete_option('display_button_reddit');
 	delete_option('display_button_google');
 	delete_option('display_button_pocket');
+	delete_option('display_buttons_under_post');
+	delete_option('load_google_fonts');
 }
 
 register_activation_hook(__FILE__, 'activate_sharify');

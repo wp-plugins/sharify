@@ -45,7 +45,7 @@
     }
     .sharify {
         font-size: 14x;
-        line-height: 31px;
+        line-height: 30px !important;
         color: white;
         height: 30px;
         margin-left: 4%;
@@ -53,11 +53,12 @@
     }
     .si-share-text {
         text-align: center;
-        line-height: 30px;
+        line-height: 30px !important;
     }
     .si-share-count-text {
         margin-bottom: 0px !important;
         text-align: center;
+        line-height: 30px !important;
     }
     .si-share-main {
         float: left;
@@ -70,7 +71,7 @@
         text-align: center;
         font-family: 'Roboto Condensed', sans-serif;
         font-size: 16px;
-        line-height: 30px;
+        line-height: 30px !important; 
         background-color: rgba(0, 0, 0, .15);
     }
     /*Share Buttons for social networks*/
