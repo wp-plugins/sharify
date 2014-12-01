@@ -3,7 +3,7 @@
 Plugin Name: Sharify
 Plugin URL: http://dip223.com/sharify
 Description: Just another sharing buttons plugin. Simple but awesome.
-Version: 1.5.2
+Version: 1.5.3
 Author: imehedidip
 Author URI: http://twitter.com/mehedih_
 

@@ -1,9 +1,9 @@
 === Sharify ===
-Contributors: imehedidip
+Contributors: mehedi
 Tags: sharify, share buttons, respnonsive, sharing buttons, flat share buttons, share counts, shareoholic, responsive sharing buttons
 Requires at least: 3.0
 Tested up to: 4.1
-Stable tag: 1.5.2
+Stable tag: 1.5.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -52,6 +52,13 @@ Next week ;)
 3. screenshot-3.png 
 
 == Changelog ==
+
+= 1.5.3 =
+
+* Fix for CSS conflict that broke WordPress Default Tabs
+* Font improvements for share button
+* Backend improvements
+* Minified CSS, JS for better performance
 
 = 1.5.2 =
 

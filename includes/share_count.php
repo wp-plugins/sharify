@@ -39,13 +39,6 @@ function sharesCounter($sharify_url = '', $echo = true, $facebook = true, $twitt
             $shares += $result; 
         }
     }
-    if ( $linkedin ) { 
-        $sharify_url_ln = "http://www.linkedin.com/countserv/count/share?url=" . $sharify_url . "&format=json"; 
-        $data_ln = json_decode(file_get_contents($sharify_url_ln)); 
-        if ( isset($data_ln->count) ) { 
-            $shares += $data_ln->count; 
-        }
-    }
     if ( $echo ) { 
         echo intval($shares); 
     } else {
