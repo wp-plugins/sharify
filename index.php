@@ -180,10 +180,10 @@ add_filter('the_content', 'sharify_show_buttons_on_single');
 
 
 function load_custom_wp_admin_style() {
-        wp_register_style('sharify_js_material', plugin_dir_url( __FILE__ ) . 'admin/css/sharify_admin.css' );
-        wp_enqueue_style( 'sharify_js_material' );
-        wp_register_script('sharify_js_material', plugin_dir_url( __FILE__ ) . 'admin/js/sharify_admin.js' );
-        wp_enqueue_script('sharify_js_material');
+        wp_register_style('sharify_admin_css', plugin_dir_url( __FILE__ ) . 'admin/css/sharifyadmin.css' );
+        wp_enqueue_style( 'sharify_admin_css' );
+        wp_register_script('sharify_admin_js', plugin_dir_url( __FILE__ ) . 'admin/js/sharifyadmin.js' );
+        wp_enqueue_script('sharify_admin_js');
 }
 add_action( 'admin_enqueue_scripts', 'load_custom_wp_admin_style' );
 
