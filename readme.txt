@@ -1,5 +1,5 @@
 === Sharify ===
-Contributors: mehedi
+Contributors: imehedidip
 Tags: sharify, share buttons, respnonsive, sharing buttons, flat share buttons, share counts, shareoholic, responsive sharing buttons
 Requires at least: 3.0
 Tested up to: 4.1
