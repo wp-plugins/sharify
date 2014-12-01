@@ -64,6 +64,10 @@
 				</div>
 			</div>
 			<div id="changelog" class="box">
+				<label class="sec-title"><p>1.5.4</p></label><br>
+				<ul>
+					<li>Share count fix for Twitter, Facebook and Google+</li>
+				</ul><br>
 				<label class="sec-title"><p>1.5.3</p></label><br>
 				<ul>
 					<li>Fix for CSS conflict that broke WordPress Default Tabs</li>

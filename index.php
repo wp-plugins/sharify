@@ -3,7 +3,7 @@
 Plugin Name: Sharify
 Plugin URL: http://dip223.com/sharify
 Description: Just another sharing buttons plugin. Simple but awesome.
-Version: 1.5.3
+Version: 1.5.4
 Author: imehedidip
 Author URI: http://twitter.com/mehedih_
 
@@ -108,7 +108,7 @@ function sharify_display_button_buttons($sharify_buttons = "")
 					<i class="sharify-twitter sharify"></i>
 					<p class="si-share-text">Tweet</p>
 				</div>
-				<div class="si-share-counter"><p class="si-share-count-text">' . sharesCounter('', false, false, true, false, false, false). '</p></div>
+				<div class="si-share-counter"><p class="si-share-count-text">' . sharesCounter(''.get_permalink().'', false, false, true, false, false) . '</p></div>
 			</div>
 			</a>';
 	if ( 1 == get_option('display_button_facebook') ) 
@@ -119,7 +119,7 @@ function sharify_display_button_buttons($sharify_buttons = "")
 					<i class="sharify-facebook sharify"></i>
 					<p class="si-share-text">Share</p>
 				</div>
-				<div class="si-share-counter"><p class="si-share-count-text">' . sharesCounter('', false, true, false, false, false, false) . '</p></div>
+				<div class="si-share-counter"><p class="si-share-count-text">' . sharesCounter(''.get_permalink().'', false, true, false, false, false) . '</p></div>
 			</div>
 			</a>';
 	if ( 1 == get_option('display_button_google') ) 
@@ -130,7 +130,7 @@ function sharify_display_button_buttons($sharify_buttons = "")
 					<i class="sharify-gplus sharify"></i>
 					<p class="si-share-text">+1</p>
 				</div>
-				<div class="si-share-counter"><p class="si-share-count-text">' . sharesCounter('', false, true, false, false, true, false) . '</p></div>
+				<div class="si-share-counter"><p class="si-share-count-text">' . sharesCounter(''.get_permalink().'', false, false, false, true, false) . '</p></div>
 			</div>
 			</a>';
 	if ( 1 == get_option('display_button_pinterest') ) 
