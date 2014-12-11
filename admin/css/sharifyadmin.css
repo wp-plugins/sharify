@@ -205,6 +205,8 @@
 	color: #fff;
 	height: 30px;
 	display: block;
+	font-weight: 300;
+	font-family: 'Roboto', sans-serif !important;
 	position: relative;
 }
 .sec-title p {
@@ -212,8 +214,9 @@
 	text-transform: uppercase;
 	display: block;
 	line-height: 30px;
-	font-weight: 400;
+	font-weight: 300;
 	font-size: 15px;
+	font-family: 'Roboto', sans-serif !important;
 	margin-left: 15px;
 	overflow: hidden;
 }
