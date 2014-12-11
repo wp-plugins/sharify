@@ -3,7 +3,7 @@
 Plugin Name: Sharify
 Plugin URL: http://dip223.com/sharify
 Description: Just another sharing buttons plugin. Simple but awesome.
-Version: 1.5.4
+Version: 1.6
 Author: imehedidip
 Author URI: http://twitter.com/mehedih_
 
@@ -54,6 +54,7 @@ function activate_sharify() {
 	add_option('display_button_google'	    , 1);
 	add_option('display_buttons_under_post'	, 1);
 	add_option('display_button_pocket'		, 1);
+	add_option('display_button_vkt'		    , 0);
 	add_option('load_google_fonts'			, 1);
 }
 
@@ -65,6 +66,7 @@ function deactive_sharify() {
 	delete_option('display_button_reddit');
 	delete_option('display_button_google');
 	delete_option('display_button_pocket');
+	delete_option('display_button_vk');
 	delete_option('display_buttons_under_post');
 	delete_option('load_google_fonts');
 }
@@ -147,6 +149,13 @@ function sharify_display_button_buttons($sharify_buttons = "")
 				<i class="sharify-linkedin sharify sharify-small"></i>
 			</div>
 			</a>';
+	if ( 1 == get_option('display_button_vk') ) 
+		$sharify_buttons .= '<a class="si-share-box" href="http://vkontakte.ru/share.php?url=' . get_permalink() . '" onclick="window.open(this.href, \'mywin\',
+			\'left=50,top=50,width=950,height=450,toolbar=0\'); return false;">
+			<div class="si-button-small si-button-vk"  title="Share link on VKontakte">
+				<i class="sharify-vkontakte sharify sharify-small"></i>
+			</div>
+			</a>';
 	if ( 1 == get_option('display_button_reddit') ) 
 		$sharify_buttons .= '<a class="si-share-box" href="http://reddit.com/submit?url=' . get_permalink() . '" onclick="window.open(this.href, \'mywin\',
 			\'left=50,top=50,width=950,height=450,toolbar=0\'); return false;">
@@ -179,12 +188,12 @@ function sharify_show_buttons_on_single($sharify_buttons)
 add_filter('the_content', 'sharify_show_buttons_on_single');
 
 
-function load_custom_wp_admin_style() {
+function load_sharify_wp_admin_style() {
         wp_register_style('sharify_admin_css', plugin_dir_url( __FILE__ ) . 'admin/css/sharifyadmin.css' );
         wp_enqueue_style( 'sharify_admin_css' );
         wp_register_script('sharify_admin_js', plugin_dir_url( __FILE__ ) . 'admin/js/sharifyadmin.js' );
         wp_enqueue_script('sharify_admin_js');
 }
-add_action( 'admin_enqueue_scripts', 'load_custom_wp_admin_style' );
+add_action( 'admin_enqueue_scripts', 'load_sharify_wp_admin_style' );
 
 ?>

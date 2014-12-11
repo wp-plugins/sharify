@@ -17,7 +17,7 @@
     	</div>
 		<div class="content">
 			<div id="display" class="box show">
-				<div class="wrap">		
+				<div class="sharify-box-wrap">		
 					<label class="sec-title"><p>BUTTON PLACEMENT</p></label>		
 					<br><label><input type="checkbox" name="display_buttons_under_post" value="1" 
 					<?php if ( 1 == get_option('display_buttons_under_post') ) echo 'checked="checked"'; ?> /> Show buttons under all posts</label> <br>
@@ -32,6 +32,8 @@
 					<?php if ( 1 == get_option('display_button_linkedin') ) echo 'checked="checked"'; ?> /> Linkedin</label><br />
 					<br><label><input type="checkbox" name="display_button_pinterest" value="1" 
 					<?php if ( 1 == get_option('display_button_pinterest') ) echo 'checked="checked"'; ?> /> Pinterest</label><br />
+					<br><label><input type="checkbox" name="display_button_vk" value="1" 
+					<?php if ( 1 == get_option('display_button_vk') ) echo 'checked="checked"'; ?> /> VKontakte</label><br />
 					<br><label><input type="checkbox" name="display_button_reddit" value="1" 
 					<?php if ( 1 == get_option('display_button_reddit') ) echo 'checked="checked"'; ?> /> Reddit</label><br />
 					<br><label><input type="checkbox" name="display_button_pocket" value="1" 
@@ -46,17 +48,17 @@
 				</div>
 			</div>
 			<div id="customise" class="box">
-				<div class="wrap">		
+				<div class="sharify-box-wrap">		
 					<br><label class="sec-title"><p>#SOON</p></label><br>
 				</div>
 			</div>
 			<div id="others" class="box">
-				<div class="wrap">		
+				<div class="sharify-box-wrap">		
 					<label class="sec-title"><p>FONTS #Soon</p></label><br>
 				</div>
 			</div>
 			<div id="update" class="box">
-				<div class="wrap">		
+				<div class="sharify-box-wrap">		
 					<label class="sec-title"><p>CURRENT VERSION 1.5.3</p></label><br>
 					<p>We always try to update Sharify weekly. However, if there is a serious issue, we release an update as soon as possible. You can force check for update by clicking at the follwing button.</p>
 					<label class="sec-title"><p>LAST CHECKED FOR SHARIFY UPDATE ON <?php echo date( 'd-m-Y - H:i', current_time( 'timestamp', 1 ) ); ?></p></label><br>
@@ -64,6 +66,11 @@
 				</div>
 			</div>
 			<div id="changelog" class="box">
+				<label class="sec-title"><p>1.6</p></label><br>
+				<ul>
+					<li>New VKontakte share button</li>
+					<li>Fixes for CSS confliction with WordPress Backend</li>
+				</ul><br>
 				<label class="sec-title"><p>1.5.4</p></label><br>
 				<ul>
 					<li>Share count fix for Twitter, Facebook and Google+</li>
@@ -109,7 +116,7 @@
 				</ul>	
 			</div>
 			<div id="follow" class="box">
-				<div class="wrap">		
+				<div class="sharify-box-wrap">		
 					<label class="sec-title"><p>FOLLOW THE DEVELOPER</p></label>
 					<br>
 					<a href="https://twitter.com/mehedih_" class="twitter-follow-button" data-show-count="false">Follow @mehedih_</a>

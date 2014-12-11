@@ -9,6 +9,7 @@ function admin_init_sharify() {
 	register_setting('sharify', 'display_button_google');
 	register_setting('sharify', 'display_button_pocket');
 	register_setting('sharify', 'display_button_pinterest');
+	register_setting('sharify', 'display_button_vk');
 	register_setting('sharify', 'display_buttons_under_post');
 	register_setting('sharify', 'load_google_fonts');
 }

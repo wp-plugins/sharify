@@ -1,11 +1,12 @@
-@import url(http://fonts.googleapis.com/css?family=RobotoDraft:400, 500, 700, 300);
+@import url(http://fonts.googleapis.com/css?family=Roboto:300);
+
 .sharify-wrap {
 	margin: 2% auto 0;
 	font-weight: 300;
 	color: #404040;
 	background-color: #fff;
 	width: 90%;
-	font-family: RobotoDraft, Helvetica, Arial, sans-serif;
+	font-family: 'Roboto', sans-serif;
 	letter-spacing: .1px;
 	-webkit-font-smoothing: antialiased;
 	text-rendering: optimizeLegibility;
@@ -72,7 +73,6 @@
 	border-bottom: 2px solid #FFFF8D;
 }
 .content {
-	box-shadow: inset 0 5px 6px -3px rgba(0, 0, 0, .4);
 	padding: 3%;
 	position: relative;
 	top: 0;
@@ -203,10 +203,7 @@
 .sec-title {
 	background-color: #03A9F4;
 	color: #fff;
-	height: 40px;
-	-webkit-box-shadow: 1px 0 5px 0 rgba(0, 0, 0, .4);
-	-moz-box-shadow: 1px 0 5px 0 rgba(0, 0, 0, .4);
-	box-shadow: 1px 0 5px 0 rgba(0, 0, 0, .4);
+	height: 30px;
 	display: block;
 	position: relative;
 }
@@ -214,13 +211,13 @@
 	color: #fff;
 	text-transform: uppercase;
 	display: block;
-	line-height: 40px;
+	line-height: 30px;
 	font-weight: 400;
-	font-size: 18px;
+	font-size: 15px;
 	margin-left: 15px;
 	overflow: hidden;
 }
-.wrap {
+.sharify-box-wrap {
 	width: 100%;
 	height: 100%;
 	display: block;

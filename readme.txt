@@ -3,7 +3,7 @@ Contributors: imehedidip
 Tags: sharify, share buttons, respnonsive, sharing buttons, flat share buttons, share counts, shareoholic, responsive sharing buttons
 Requires at least: 3.0
 Tested up to: 4.1
-Stable tag: 1.5.4
+Stable tag: 1.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -13,6 +13,10 @@ Sharify is a simple, fast and feature-packed sharing butons plugin for your Word
 
 Sharify lets you add responsive and fast sharing buttons to our WordPress websie. The plugin is fast and 
 gets the job done. 
+
+<hr>
+<a href="http://gdgtarena.com/2014/12/11/mifit-windows-8-1/" target="_blank">LIVE DEMO</a> | <a href="http://gdgtarena.com/2014/12/11/mifit-windows-8-1/" target="_blank">REVIEW</a>
+<hr>
 
 <strong>Features</strong><br>
 
@@ -52,6 +56,11 @@ Next week ;)
 3. screenshot-3.png 
 
 == Changelog ==
+
+= 1.6 =
+<br>
+* New VKontakte share button
+* Fixes for CSS confliction with WordPress Backend
 
 = 1.5.4 =
 <br>
