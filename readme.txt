@@ -58,14 +58,12 @@ Next week ;)
 == Changelog ==
 
 = 1.6 =
-<br>
 * New VKontakte share button
 * Fixes for CSS confliction with WordPress Backend
 
 = 1.5.4 =
-<br>
-* Share count fix for Twitter, Facebook and Google+
 
+* Share count fix for Twitter, Facebook and Google+
 
 = 1.5.3 =
 
