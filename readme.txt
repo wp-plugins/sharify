@@ -3,7 +3,7 @@ Contributors: imehedidip
 Tags: sharify, share buttons, respnonsive, sharing buttons, flat share buttons, share counts, shareoholic, responsive sharing buttons
 Requires at least: 3.0
 Tested up to: 4.1
-Stable tag: 1.6.1
+Stable tag: 1.6.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -56,6 +56,12 @@ Next week ;)
 3. screenshot-3.png 
 
 == Changelog ==
+
+= 1.6.2 =
+* CSS Bug Fixes!
+
+= 1.6.1=
+* Admin panel bug fixes.
 
 = 1.6 =
 * New VKontakte share button

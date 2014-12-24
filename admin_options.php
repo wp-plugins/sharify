@@ -59,13 +59,21 @@
 			</div>
 			<div id="update" class="box">
 				<div class="sharify-box-wrap">		
-					<label class="sec-title"><p>CURRENT VERSION 1.5.3</p></label><br>
+					<label class="sec-title"><p>CURRENT VERSION 1.6.2</p></label><br>
 					<p>We always try to update Sharify weekly. However, if there is a serious issue, we release an update as soon as possible. You can force check for update by clicking at the follwing button.</p>
 					<label class="sec-title"><p>LAST CHECKED FOR SHARIFY UPDATE ON <?php echo date( 'd-m-Y - H:i', current_time( 'timestamp', 1 ) ); ?></p></label><br>
 					<a class="check-for-update" href="<?php echo admin_url() . 'update-core.php?force-check=1'; ?>">Check for update!</a>
 				</div>
 			</div>
 			<div id="changelog" class="box">
+				<label class="sec-title"><p>1.6.2</p></label><br>
+				<ul>
+					<li>CSS Bug fixes</li>
+				</ul><br>
+				<label class="sec-title"><p>1.6.1</p></label><br>
+				<ul>
+					<li>Admin Panel Bug Fixes</li>
+				</ul><br>
 				<label class="sec-title"><p>1.6</p></label><br>
 				<ul>
 					<li>New VKontakte share button</li>
