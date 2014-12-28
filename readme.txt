@@ -3,7 +3,7 @@ Contributors: imehedidip
 Tags: sharify, share buttons, respnonsive, sharing buttons, flat share buttons, share counts, shareoholic, responsive sharing buttons
 Requires at least: 3.0
 Tested up to: 4.1
-Stable tag: 1.6.2
+Stable tag: 1.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -57,34 +57,28 @@ Next week ;)
 
 == Changelog ==
 
-= 1.6.2 =
-* CSS Bug Fixes!
+= 1.7 =
 
-= 1.6.1=
-* Admin panel bug fixes.
+* I've fully rewritten the plugin to make it more clean, fast and efficient
+* New Design for sharing buttons
+* New admin panel
+* New Email Button
+* Better sharing counts
 
 = 1.6 =
 * New VKontakte share button
+* Admin panel bug fixes.
+* CSS Bug Fixes!
 * Fixes for CSS confliction with WordPress Backend
-
-= 1.5.4 =
-
-* Share count fix for Twitter, Facebook and Google+
-
-= 1.5.3 =
-
-* Fix for CSS conflict that broke WordPress Default Tabs
-* Font improvements for share button
-* Backend improvements
-* Minified CSS, JS for better performance
-
-= 1.5.2 =
-
-* Bug fixes for 1.5.
 
 = 1.5 - SWEET =
 
 * New control panel design!
+* Fix for CSS conflict that broke WordPress Default Tabs
+* Font improvements for share button
+* Backend improvements
+* Minified CSS, JS for better performance
+* Share count fix for Twitter, Facebook and Google+
 
 = 1.4 =
 
@@ -92,7 +86,7 @@ Next week ;)
 
 * Twitter, Facebok, Google+, Reddit, Pocket, LinkedIn, Pinterest buttons fixed!
 
-= 1.3 - THE BIG ONE =
+= 1.3 =
 
 * Control Panel - You can now control any buttons you want! (hide or show). More options coming on 1.4!
 * Share Count feature has been optimised for better performace.

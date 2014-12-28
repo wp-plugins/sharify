@@ -5,6 +5,7 @@ function admin_init_sharify() {
 	register_setting('sharify', 'display_button_facebook');
 	register_setting('sharify', 'display_button_linkedin');
 	register_setting('sharify', 'display_button_twitter');
+	register_setting('sharify', 'display_button_email');
 	register_setting('sharify', 'display_button_reddit');
 	register_setting('sharify', 'display_button_google');
 	register_setting('sharify', 'display_button_pocket');
@@ -24,10 +25,12 @@ function admin_menu_sharify() {
 		'options_page_sharify');
 }
 
+//Include Sharify options
 function options_page_sharify() {
-  include( 'admin_options.php' );  
+  include( 'sharify_options.php' );  
 }
 
+//Check if its admin
 if (is_admin()) {
   add_action('admin_init', 'admin_init_sharify');
   add_action('admin_menu', 'admin_menu_sharify');
