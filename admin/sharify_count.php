@@ -3,7 +3,7 @@
 //Get Tweet Count
 function sharify_get_tweets($url) {
 
-    $json_string = file_get_contents('http://urls.api.twitter.com/1/urls/count.json?url=' . $url);
+    $json_string = file_get_contents('https://urls.api.twitter.com/1/urls/count.json?url=' . $url);
     $json = json_decode($json_string, true);
 
     return intval( $json['count'] );
@@ -12,7 +12,7 @@ function sharify_get_tweets($url) {
 //Get Facebook Share Count
 function sharify_get_share($url) {
 
-    $json_string = file_get_contents('http://graph.facebook.com/?ids=' . $url);
+    $json_string = file_get_contents('https://graph.facebook.com/?ids=' . $url);
     $json = json_decode($json_string, true);
 
     return intval( $json[$url]['shares'] );
