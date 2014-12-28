@@ -53,6 +53,22 @@ Next week ;)
 
 == Changelog ==
 
+= 1.5.4 =
+<br>
+* Share count fix for Twitter, Facebook and Google+
+
+
+= 1.5.3 =
+
+* Fix for CSS conflict that broke WordPress Default Tabs
+* Font improvements for share button
+* Backend improvements
+* Minified CSS, JS for better performance
+
+= 1.5.2 =
+
+* Bug fixes for 1.5.
+
 = 1.5 - SWEET =
 
 * New control panel design!

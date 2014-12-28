@@ -3,7 +3,7 @@
 Plugin Name: Sharify
 Plugin URL: http://dip223.com/sharify
 Description: Just another sharing buttons plugin. Simple but awesome.
-Version: 1.5
+Version: 1.5.4
 Author: imehedidip
 Author URI: http://twitter.com/mehedih_
 
@@ -32,9 +32,8 @@ Thanks for using my plugin!
 //Load the CSS
 function sharify_css()
 {
-    wp_register_style('sharify_stylesheet', plugins_url('includes/css/sharify.css', __FILE__));
+	wp_register_style('sharify_stylesheet', plugins_url('includes/css/sharify.css', __FILE__));
     wp_enqueue_style('sharify_stylesheet');
-	
     wp_register_style('icons_stylesheet', plugins_url('includes/icons/css/sharify.css', __FILE__));
     wp_enqueue_style('icons_stylesheet');
 }
@@ -48,12 +47,14 @@ include('includes/share_count.php');
 
 //Activate Sharify options
 function activate_sharify() {	
-	add_option('display_button_facebook', 1);
-	add_option('display_button_linkedin', 1);
-	add_option('display_button_twitter'	, 1);
-	add_option('display_button_reddit'	, 1);
-	add_option('display_button_google'	, 1);
-	add_option('display_button_pocket'	, 1);
+	add_option('display_button_facebook'	, 1);
+	add_option('display_button_linkedin'	, 1);
+	add_option('display_button_twitter'		, 1);
+	add_option('display_button_reddit'		, 1);
+	add_option('display_button_google'	    , 1);
+	add_option('display_buttons_under_post'	, 1);
+	add_option('display_button_pocket'		, 1);
+	add_option('load_google_fonts'			, 1);
 }
 
 //Deactivate Sharify options
@@ -64,6 +65,8 @@ function deactive_sharify() {
 	delete_option('display_button_reddit');
 	delete_option('display_button_google');
 	delete_option('display_button_pocket');
+	delete_option('display_buttons_under_post');
+	delete_option('load_google_fonts');
 }
 
 register_activation_hook(__FILE__, 'activate_sharify');
@@ -105,7 +108,7 @@ function sharify_display_button_buttons($sharify_buttons = "")
 					<i class="sharify-twitter sharify"></i>
 					<p class="si-share-text">Tweet</p>
 				</div>
-				<div class="si-share-counter"><p class="si-share-count-text">' . sharesCounter('', false, false, true, false, false, false). '</p></div>
+				<div class="si-share-counter"><p class="si-share-count-text">' . sharesCounter(''.get_permalink().'', false, false, true, false, false) . '</p></div>
 			</div>
 			</a>';
 	if ( 1 == get_option('display_button_facebook') ) 
@@ -116,7 +119,7 @@ function sharify_display_button_buttons($sharify_buttons = "")
 					<i class="sharify-facebook sharify"></i>
 					<p class="si-share-text">Share</p>
 				</div>
-				<div class="si-share-counter"><p class="si-share-count-text">' . sharesCounter('', false, true, false, false, false, false) . '</p></div>
+				<div class="si-share-counter"><p class="si-share-count-text">' . sharesCounter(''.get_permalink().'', false, true, false, false, false) . '</p></div>
 			</div>
 			</a>';
 	if ( 1 == get_option('display_button_google') ) 
@@ -127,7 +130,7 @@ function sharify_display_button_buttons($sharify_buttons = "")
 					<i class="sharify-gplus sharify"></i>
 					<p class="si-share-text">+1</p>
 				</div>
-				<div class="si-share-counter"><p class="si-share-count-text">' . sharesCounter('', false, true, false, false, true, false) . '</p></div>
+				<div class="si-share-counter"><p class="si-share-count-text">' . sharesCounter(''.get_permalink().'', false, false, false, true, false) . '</p></div>
 			</div>
 			</a>';
 	if ( 1 == get_option('display_button_pinterest') ) 
@@ -177,10 +180,10 @@ add_filter('the_content', 'sharify_show_buttons_on_single');
 
 
 function load_custom_wp_admin_style() {
-        wp_register_style('sharify_js_material', plugin_dir_url( __FILE__ ) . 'admin/css/sharify_admin.css' );
-        wp_enqueue_style( 'sharify_js_material' );
-        wp_register_script('sharify_js_material', plugin_dir_url( __FILE__ ) . 'admin/js/sharify_admin.js' );
-        wp_enqueue_script('sharify_js_material');
+        wp_register_style('sharify_admin_css', plugin_dir_url( __FILE__ ) . 'admin/css/sharifyadmin.css' );
+        wp_enqueue_style( 'sharify_admin_css' );
+        wp_register_script('sharify_admin_js', plugin_dir_url( __FILE__ ) . 'admin/js/sharifyadmin.js' );
+        wp_enqueue_script('sharify_admin_js');
 }
 add_action( 'admin_enqueue_scripts', 'load_custom_wp_admin_style' );
 

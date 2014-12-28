@@ -4,13 +4,13 @@
 	</div>
 	<div class="sharify-wrap">
 		<div class="toolbar">
-	        <div class="tabs">
+	        <div class="sharify-tabs">
 	            <ul>
 	                <li class="tabitem active"><a href="#display">DISPLAY<span></span></a></li>
 	                <li class="tabitem"><a href="#customise">CUSTOMISE<span></span></a></li>
 	                <li class="tabitem"><a href="#others">OTHERS<span></span></a></li>
+	                <li class="tabitem"><a href="#update">UPDATE<span></span></a></li>
 	                <li class="tabitem"><a href="#changelog">CHANGELOG<span></span></a></li>
-	                <li class="tabitem"><a href="#share">SHARE<span></span></a></li>
 	                <li class="tabitem"><a href="#follow">FOLLOW<span></span></a></li>
 	            </ul>
 	        </div>
@@ -52,13 +52,40 @@
 			</div>
 			<div id="others" class="box">
 				<div class="wrap">		
-					<br><label class="sec-title"><p>#SOON</p></label><br>
+					<label class="sec-title"><p>FONTS #Soon</p></label><br>
+				</div>
+			</div>
+			<div id="update" class="box">
+				<div class="wrap">		
+					<label class="sec-title"><p>CURRENT VERSION 1.5.3</p></label><br>
+					<p>We always try to update Sharify weekly. However, if there is a serious issue, we release an update as soon as possible. You can force check for update by clicking at the follwing button.</p>
+					<label class="sec-title"><p>LAST CHECKED FOR SHARIFY UPDATE ON <?php echo date( 'd-m-Y - H:i', current_time( 'timestamp', 1 ) ); ?></p></label><br>
+					<a class="check-for-update" href="<?php echo admin_url() . 'update-core.php?force-check=1'; ?>">Check for update!</a>
 				</div>
 			</div>
 			<div id="changelog" class="box">
+				<label class="sec-title"><p>1.5.4</p></label><br>
+				<ul>
+					<li>Share count fix for Twitter, Facebook and Google+</li>
+				</ul><br>
+				<label class="sec-title"><p>1.5.3</p></label><br>
+				<ul>
+					<li>Fix for CSS conflict that broke WordPress Default Tabs</li>
+					<li>Font improvements for share button</li>
+					<li>Minified CSS, JS for better performance</li>
+					<li>Backend improvements</li>
+				</ul><br>
+				<label class="sec-title"><p>1.5.2</p></label><br>
+				<ul>
+					<li>Bug fixes for 1.5.</li>
+				</ul><br>
+				<label class="sec-title"><p>1.5</p></label><br>
+				<ul>
+					<li>New control panel design!</li>
+				</ul><br>
 				<label class="sec-title"><p>1.4</p></label><br>
 				<ul>
-					<li>New UI interface for control panel</li>
+					<li>Twitter, Facebok, Google+, Reddit, Pocket, LinkedIn, Pinterest buttons fixed!</li>
 				</ul><br>
 				<label class="sec-title"><p>1.3</p></label><br>
 				<ul>
@@ -81,16 +108,12 @@
 					<li>Initial Release</li>
 				</ul>	
 			</div>
-			<div id="share" class="box">
-				<div class="wrap">		
-					<br><label class="sec-title"><p>#SOON</p></label><br>
-				</div>
-			</div>
 			<div id="follow" class="box">
 				<div class="wrap">		
 					<label class="sec-title"><p>FOLLOW THE DEVELOPER</p></label>
 					<br>
-					<p><a target="_blank" 	href="http://twitter.com/mehedih_">Follow me on Twitter</a></p>	
+					<a href="https://twitter.com/mehedih_" class="twitter-follow-button" data-show-count="false">Follow @mehedih_</a>
+					<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 				</div>
 			</div>
 		</div>
