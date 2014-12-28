@@ -57,6 +57,12 @@ Next week ;)
 
 == Changelog ==
 
+= 1.6.2 =
+* CSS Bug Fixes!
+
+= 1.6.1=
+* Admin panel bug fixes.
+
 = 1.6 =
 * New VKontakte share button
 * Fixes for CSS confliction with WordPress Backend

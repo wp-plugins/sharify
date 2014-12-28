@@ -3,7 +3,7 @@
 Plugin Name: Sharify
 Plugin URL: http://dip223.com/sharify
 Description: Just another sharing buttons plugin. Simple but awesome.
-Version: 1.6
+Version: 1.6.2
 Author: imehedidip
 Author URI: http://twitter.com/mehedih_
 
@@ -136,28 +136,28 @@ function sharify_display_button_buttons($sharify_buttons = "")
 			</div>
 			</a>';
 	if ( 1 == get_option('display_button_pinterest') ) 
-		$sharify_buttons .= '<a class="si-share-box" href="http://pinterest.com/pin/create/button/?url=' . get_permalink() . '&media=' . sharify_catch_that_image() . '' . '&description='. get_the_title() .' - ' . get_permalink(). '" onclick="window.open(this.href, \'mywin\',
+		$sharify_buttons .= '<a href="http://pinterest.com/pin/create/button/?url=' . get_permalink() . '&media=' . sharify_catch_that_image() . '' . '&description='. get_the_title() .' - ' . get_permalink(). '" onclick="window.open(this.href, \'mywin\',
 			\'left=50,top=50,width=600,height=350,toolbar=0\'); return false;">
 			<div class="si-button-small si-button-pinterest" title="Pin it on Pinterest">
 				<i class="sharify-pinterest sharify sharify-small"></i>
 			</div>
 			</a>';
 	if ( 1 == get_option('display_button_linkedin') ) 
-		$sharify_buttons .= '<a class="si-share-box" href="https://www.linkedin.com/shareArticle?mini=true&url=' . get_permalink() . '&title='. get_the_title() .'" onclick="if(!document.getElementById(\'td_social_networks_buttons\')){window.open(this.href, \'mywin\',
+		$sharify_buttons .= '<a href="https://www.linkedin.com/shareArticle?mini=true&url=' . get_permalink() . '&title='. get_the_title() .'" onclick="if(!document.getElementById(\'td_social_networks_buttons\')){window.open(this.href, \'mywin\',
 			\'left=50,top=50,width=600,height=350,toolbar=0\'); return false;}" >
 			<div class="si-button-small si-button-linkedin" title="Share link on LinkedIn">
 				<i class="sharify-linkedin sharify sharify-small"></i>
 			</div>
 			</a>';
 	if ( 1 == get_option('display_button_vk') ) 
-		$sharify_buttons .= '<a class="si-share-box" href="http://vkontakte.ru/share.php?url=' . get_permalink() . '" onclick="window.open(this.href, \'mywin\',
+		$sharify_buttons .= '<a href="http://vkontakte.ru/share.php?url=' . get_permalink() . '" onclick="window.open(this.href, \'mywin\',
 			\'left=50,top=50,width=950,height=450,toolbar=0\'); return false;">
 			<div class="si-button-small si-button-vk"  title="Share link on VKontakte">
 				<i class="sharify-vkontakte sharify sharify-small"></i>
 			</div>
 			</a>';
 	if ( 1 == get_option('display_button_reddit') ) 
-		$sharify_buttons .= '<a class="si-share-box" href="http://reddit.com/submit?url=' . get_permalink() . '" onclick="window.open(this.href, \'mywin\',
+		$sharify_buttons .= '<a href="http://reddit.com/submit?url=' . get_permalink() . '" onclick="window.open(this.href, \'mywin\',
 			\'left=50,top=50,width=950,height=450,toolbar=0\'); return false;">
 			<div class="si-button-small si-button-reddit"  title="Share link on Reddit">
 				<i class="sharify-reddit sharify sharify-small"></i>
