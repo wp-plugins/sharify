@@ -33,7 +33,7 @@ include_once ('admin/sharify_count.php'); //Get Share Count
 function sharify_css() {
     wp_register_style( 'sharify', plugins_url( 'sharify.css', __FILE__ ), false, NULL, 'all' );
     wp_register_style( 'sharify-icon', plugins_url( 'icon/css/sharify.css', __FILE__ ), false, NULL, 'all' );
-    wp_register_style( 'sharify-font', 'http://fonts.googleapis.com/css?family=Roboto:300', false, NULL, 'all' );
+    wp_register_style( 'sharify-font', 'https://fonts.googleapis.com/css?family=Roboto:300', false, NULL, 'all' );
     if (is_single()) {
     	wp_enqueue_style('sharify');
     	wp_enqueue_style('sharify-icon');

@@ -14,7 +14,7 @@ function sharify_get_share($url) {
 
     $json_string = file_get_contents('https://graph.facebook.com/?ids=' . $url);
     $json = json_decode($json_string, true);
-
+    
     return intval( $json[$url]['shares'] );
 }
 
