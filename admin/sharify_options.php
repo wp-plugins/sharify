@@ -48,7 +48,7 @@
 			</div>
 			<div class="sec-title">Changelog</div>	
 			<div id="changelog" class="sharify-setting-wrap">
-				<p><strong>Current Version: 1.7 - <?php printf( __('Last checked on %1$s at %2$s.'), date_i18n( get_option( 'date_format' ) ), date_i18n( get_option( 'time_format' ) ) ); ?></strong></p>
+				<p><strong>Current Version: 1.7.1 - <?php printf( __('Last checked on %1$s at %2$s.'), date_i18n( get_option( 'date_format' ) ), date_i18n( get_option( 'time_format' ) ) ); ?></strong></p>
 				<div class="sharify-container">
 				<ul>
 				<li class="sharify-btn-twitter">
@@ -56,6 +56,12 @@
 				</li><br>
 				</ul>
 				</div>
+				<hr>
+				<p class="sharify-version-no"><strong>Version 1.7.1</strong></p>
+				<ul>
+					<li>SSL Security Fix</li>
+					<li>Added caching to share counts</li>
+				</ul>
 				<hr>
 				<p class="sharify-version-no"><strong>Version 1.7</strong></p>
 				<ul>

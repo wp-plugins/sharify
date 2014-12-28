@@ -1,108 +1,65 @@
 <?php
-/*
- * ShareCount - Get the share counts of URLs from various social networks
- *
- * (c) 2013 Kevin Selwyn
- *
- */
-class ShareCount {
-    public $url = "";
-    private $api = array(
-        array("network" => "facebook",
-              "query"   => "http://graph.facebook.com/?id={{url}}",
-              "count"   => "shares"),
-        array("network" => "linkedin",
-              "query"   => "http://www.linkedin.com/countserv/count/share?url={{url}}&format=json",
-              "count"   => "count"),
-        array("network" => "pinterest",
-              "query"   => "http://api.pinterest.com/v1/urls/count.json?callback=a&url={{url}}",
-              "count"   => "count"),
-        array("network" => "twitter",
-              "query"   => "http://urls.api.twitter.com/1/urls/count.json?url={{url}}",
-              "count"   => "count")
-    );
-    private $counts = array(
-        "facebook" => 0,
-        "gplus" => 0,
-        "linkedin" => 0,
-        "pinterest" => 0,
-        "twitter" => 0
-    );
-    public function __construct($url = "") {
-        if ($url) {
-            $this->url($url);
-            return false;
-        }
-        return true;
+
+//Get Tweet Count
+function sharify_get_tweets($url) {
+
+    $json_string = file_get_contents('http://urls.api.twitter.com/1/urls/count.json?url=' . $url);
+    $json = json_decode($json_string, true);
+
+    return intval( $json['count'] );
+}
+
+//Get Facebook Share Count
+function sharify_get_share($url) {
+
+    $json_string = file_get_contents('http://graph.facebook.com/?ids=' . $url);
+    $json = json_decode($json_string, true);
+
+    return intval( $json[$url]['shares'] );
+}
+
+//Get Plus One Count
+function sharify_get_plusone($url) {
+
+    $curl = curl_init();
+    curl_setopt($curl, CURLOPT_URL, "https://clients6.google.com/rpc");
+    curl_setopt($curl, CURLOPT_POST, 1);
+    curl_setopt($curl, CURLOPT_POSTFIELDS, '[{"method":"pos.plusones.get","id":"p","params":{"nolog":true,"id":"' . $url . '","source":"widget","userId":"@viewer","groupId":"@self"},"jsonrpc":"2.0","key":"p","apiVersion":"v1"}]');
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+    curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-type: application/json'));
+    $curl_results = curl_exec ($curl);
+    curl_close ($curl);
+
+    $json = json_decode($curl_results, true);
+
+    return intval( $json[0]['result']['metadata']['globalCounts']['count'] );
+}
+
+function sharify_tweet_count(){
+    $sharify_cache_tweet = get_transient( 'sharify_cache_tweet' );
+    if ( false === $sharify_cache_tweet ) { 
+        $sharify_cache_tweet = sharify_get_tweets(get_permalink());
+        set_transient('sharify_cache_tweet', $sharify_cache_tweet, 3593);
     }
-    public function getData($url) {
-        $ch = curl_init();
-        $timeout = 5;
-        curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
-        $data = curl_exec($ch);
-        curl_close($ch);
-        $data = preg_replace('/^(a\()|(\))$/', '', $data);
-        return $data;
+    return $sharify_cache_tweet;
+}
+
+function sharify_share_count(){
+    $sharify_cache_share = get_transient( 'sharify_cache_share' );
+    if ( false === $sharify_cache_share ) { 
+        $sharify_cache_share = sharify_get_share(get_permalink());
+        set_transient('sharify_cache_share', $sharify_cache_share, 3583);
     }
-    public function postData($url) {
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, "https://clients6.google.com/rpc");
-        curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, '[{"method":"pos.plusones.get","id":"p","params":{"nolog":true,"id":"' . rawurldecode($url) . '","source":"widget","userId":"@viewer","groupId":"@self"},"jsonrpc":"2.0","key":"p","apiVersion":"v1"}]');
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-type: application/json'));
-        $data = curl_exec($ch);
-        curl_close($ch);
-        return $data;
+    return $sharify_cache_share;
+}
+
+function sharify_plus_count(){
+    $sharify_cache_plus = get_transient( 'sharify_cache_plus' );
+    if ( false === $sharify_cache_plus ) { 
+        $sharify_cache_plus = sharify_get_plusone(get_permalink());
+        set_transient('sharify_cache_plus', $sharify_cache_plus, 3571);
     }
-    public function getCounts() {
-        $url = $this->url;
-        $api = $this->api;
-        for ($i = 0, $l = count($api); $i < $l; $i++) {
-            $network = $api[$i]["network"];
-            $query = $api[$i]["query"];
-            $count = $api[$i]["count"];
-            $json = $this->getData(str_replace("{{url}}", $url, $query));
-            $data = json_decode($json);
-            $this->counts[$network] = $data->{$count};
-        }
-        return $this;
-    }
-    public function getCountsGoogle() {
-        $url = $this->url;
-        $count = json_decode($this->postData($url));
-        $this->counts["gplus"] = $count[0]->result->metadata->globalCounts->count;
-        return $this;
-    }
-    
-    public function url($url) {
-        if ($url === "") { return; }
-        $this->url = $url;
-        $this->getCounts()->getCountsGoogle();
-        return $this->counts;
-    }
-    public function facebook($url = "") {
-        $this->url($url);
-        return $this->counts["facebook"];
-    }
-    public function gplus($url = "") {
-        $this->url($url);
-        return $this->counts["gplus"];
-    }
-    public function linkedin($url = "") {
-        $this->url($url);
-        return $this->counts["linkedin"];
-    }
-    public function pinterest($url = "") {
-        $this->url($url);
-        return $this->counts["pinterest"];
-    }
-    public function twitter($url = "") {
-        $this->url($url);
-        return $this->counts["twitter"];
-    }
+    return $sharify_cache_plus;
 }
 ?>

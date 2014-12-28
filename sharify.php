@@ -4,7 +4,7 @@
  * Plugin URI: https://wordpress.org/plugins/sharify/
  * Description: Sharify is a fast and simple plugin for sharing buttons on WordPress. The plugin lets you display responsive sharing 
  * buttons on your WordPress website!
- * Version: 1.7
+ * Version: 1.7.1
  * Author: imehedidip
  * Author URI: http://twitter.com/mehedih_
  * Text Domain: sharify
@@ -98,8 +98,6 @@ function sharify_catch_that_image() {
 //Sharify buttons
 function sharify_display_button_buttons($sharify_buttons = "")
 {
-	global $share_count;
-	$share_count = new ShareCount("http://gdgtarena.com/");
 	$sharify_buttons .= '<div class="sharify-container">';
 	$sharify_buttons .= '<ul>';
 
@@ -108,7 +106,7 @@ function sharify_display_button_buttons($sharify_buttons = "")
 								<a title="Tweet on Twitter" href="https://twitter.com/intent/tweet?text='.get_the_title().' - '.get_permalink().'" onclick="window.open(this.href, \'mywin\',\'left=50,top=50,width=600,height=350,toolbar=0\'); return false;">
 									<span class="sharify-icon"><i class="sharify sharify-twitter"></i></span>
 									<span class="sharify-title">Tweet</span>
-									<span class="sharify-count">'.$share_count->twitter().'</span>
+									<span class="sharify-count">'.sharify_tweet_count().'</span>
 								</a>
 							</li>';
 	if ( 1 == get_option('display_button_facebook') ) 
@@ -116,7 +114,7 @@ function sharify_display_button_buttons($sharify_buttons = "")
 								<a title="Share on Facebook" href="http://www.facebook.com/sharer.php?u=' . urlencode(get_permalink()) . '" onclick="window.open(this.href, \'mywin\',\'left=50,top=50,width=600,height=350,toolbar=0\'); return false;">
 									<span class="sharify-icon"><i class="sharify sharify-facebook"></i></span>
 									<span class="sharify-title">Share</span>
-									<span class="sharify-count">'.$share_count->facebook().'</span>
+									<span class="sharify-count">'.sharify_share_count().'</span>
 								</a>
 							</li>';
 	if ( 1 == get_option('display_button_google') ) 
@@ -124,7 +122,7 @@ function sharify_display_button_buttons($sharify_buttons = "")
 								<a title="Share on Google+" href="http://plus.google.com/share?url=' . get_permalink() . '" onclick="window.open(this.href, \'mywin\',\'left=50,top=50,width=600,height=350,toolbar=0\'); return false;">
 									<span class="sharify-icon"><i class="sharify sharify-gplus"></i></span>
 									<span class="sharify-title">+1</span>
-									<span class="sharify-count">'.$share_count->gplus().'</span>
+									<span class="sharify-count">'.sharify_plus_count().'</span>
 								</a>
 							</li>';
 	if ( 1 == get_option('display_button_reddit') ) 
