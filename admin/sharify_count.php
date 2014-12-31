@@ -19,7 +19,7 @@ function sharify_get_share($url) {
 }
 
 //Get Plus One Count
-function sharify_get_plusone($url) {
+function sharify_get_plus($url) {
 
     $curl = curl_init();
     curl_setopt($curl, CURLOPT_URL, "https://clients6.google.com/rpc");
@@ -34,32 +34,5 @@ function sharify_get_plusone($url) {
     $json = json_decode($curl_results, true);
 
     return intval( $json[0]['result']['metadata']['globalCounts']['count'] );
-}
-
-function sharify_tweet_count(){
-    $sharify_cache_tweet = get_transient( 'sharify_cache_tweet' );
-    if ( false === $sharify_cache_tweet ) { 
-        $sharify_cache_tweet = sharify_get_tweets(get_permalink());
-        set_transient('sharify_cache_tweet', $sharify_cache_tweet, 3593);
-    }
-    return $sharify_cache_tweet;
-}
-
-function sharify_share_count(){
-    $sharify_cache_share = get_transient( 'sharify_cache_share' );
-    if ( false === $sharify_cache_share ) { 
-        $sharify_cache_share = sharify_get_share(get_permalink());
-        set_transient('sharify_cache_share', $sharify_cache_share, 3583);
-    }
-    return $sharify_cache_share;
-}
-
-function sharify_plus_count(){
-    $sharify_cache_plus = get_transient( 'sharify_cache_plus' );
-    if ( false === $sharify_cache_plus ) { 
-        $sharify_cache_plus = sharify_get_plusone(get_permalink());
-        set_transient('sharify_cache_plus', $sharify_cache_plus, 3571);
-    }
-    return $sharify_cache_plus;
 }
 ?>

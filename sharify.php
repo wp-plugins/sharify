@@ -1,10 +1,11 @@
 <?php
+
 /**
  * Plugin Name: Sharify
  * Plugin URI: https://wordpress.org/plugins/sharify/
  * Description: Sharify is a fast and simple plugin for sharing buttons on WordPress. The plugin lets you display responsive sharing 
  * buttons on your WordPress website!
- * Version: 1.7.1
+ * Version: 1.7.2
  * Author: imehedidip
  * Author URI: http://twitter.com/mehedih_
  * Text Domain: sharify
@@ -23,7 +24,6 @@
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
-
 */
 
 include_once ('admin/sharify_admin.php'); //Get Admin Settings
@@ -54,7 +54,8 @@ function activate_sharify() {
 	add_option('display_buttons_under_post'	, 1);
 	add_option('display_button_pocket'		, 1);
 	add_option('display_button_vkt'		    , 0);
-	add_option('load_google_fonts'			, 1);
+	add_option('sharify_enable_cache'		, 1);
+	add_option('sharify_cache_period'		, "60");
 }
 
 //Deactivate Sharify options
@@ -68,18 +69,19 @@ function deactive_sharify() {
 	delete_option('display_button_pocket');
 	delete_option('display_button_vk');
 	delete_option('display_buttons_under_post');
-	delete_option('load_google_fonts');
+	delete_option('sharify_enable_cache');
+	delete_option('sharify_cache_period');
 }
 
 register_activation_hook(__FILE__, 'activate_sharify');
 register_deactivation_hook(__FILE__, 'deactive_sharify');
-
 
 //Add Sharify Buttons shortcode
 function sharify_show_buttons_shortcode()
 {
 	return sharify_display_button_buttons();
 }
+
 add_shortcode('sharify', 'sharify_show_buttons_shortcode');
 
 //Function for getting the image
@@ -90,7 +92,6 @@ function sharify_catch_that_image() {
   ob_end_clean();
   $output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $post->post_content, $matches);
   $first_img = $matches[1][0];
-
 
   return $first_img;
 }
@@ -151,7 +152,7 @@ function sharify_display_button_buttons($sharify_buttons = "")
 							</li>';
 	if ( 1 == get_option('display_button_email') ) 
 		$sharify_buttons .= '<li class="sharify-btn-email sharify-btn-sec">
-								<a title="Share via mail" href="mailto:?subject='.get_the_title().'&body=Hey, checkout this great article: '.get_permalink().'">							
+								<a title="Share via mail" href="mailto:?subject='.get_the_title().'&body=Hey, checkout this great article: '.get_permalink().'">
 									<span><i class="sharify sharify-mail"></i></span>
 								</a>
 							</li>';
@@ -161,7 +162,6 @@ function sharify_display_button_buttons($sharify_buttons = "")
 									<span><i class="sharify sharify-vk"></i></span>
 								</a>
 							</li>';
-					
 	$sharify_buttons .= '</ul>';
     $sharify_buttons .= '</div>';
 	return $sharify_buttons;
@@ -173,8 +173,10 @@ function sharify_show_buttons_on_single($sharify_buttons)
     if ( is_single() && ( 1 == get_option('display_buttons_under_post') )  ) {
 		$sharify_buttons = sharify_display_button_buttons($sharify_buttons);
 	}
+	
 	return $sharify_buttons;
 }
+
 add_filter('the_content', 'sharify_show_buttons_on_single');
 
 //Load Admin Styles
@@ -184,6 +186,69 @@ function load_sharify_wp_admin_style() {
         wp_register_style('sharify_icon', plugin_dir_url( __FILE__ ) . 'icon/css/sharify.css' );
         wp_enqueue_style( 'sharify_icon' );
 }
+
 add_action( 'admin_enqueue_scripts', 'load_sharify_wp_admin_style' );
+
+
+$sharify_trans_period = get_option('sharify_cache_period'); //Get the transient period
+function sharify_tweet_count(){
+	//If cache enabled
+    if ( 1 == get_option('sharify_enable_cache') ) {
+        $sharify_cache_tweet = get_transient( 'sharifytrans_tweet_' . get_the_id() );
+        if ( false === $sharify_cache_tweet ) { 
+            $sharify_cache_tweet = sharify_get_tweets(get_permalink());
+            set_transient('sharifytrans_tweet_' . get_the_id(), $sharify_cache_tweet, 60 * $sharify_trans_period);
+        }
+        return $sharify_cache_tweet;    
+    }
+    //Else
+    else{
+        $sharify_cache_tweet = sharify_get_tweets(get_permalink());
+        return $sharify_cache_tweet;
+    }
+}
+
+$sharify_trans_period_share = $sharify_trans_period + 88; //If a new transient is set on the same time, there may be high site load for some users. that's why i've delayed some of them.
+
+function sharify_share_count(){
+    if ( 1 == get_option('sharify_enable_cache') ) {
+        $sharify_cache_share = get_transient( 'sharifytrans_share_' . get_the_id() );
+        if ( false === $sharify_cache_share ) { 
+            $sharify_cache_share = sharify_get_share(get_permalink());
+            set_transient('sharifytrans_share_' . get_the_id(), $sharify_cache_share, 60 * $sharify_trans_period_share);
+        }
+        return $sharify_cache_share;    
+    }
+    
+    else{
+        $sharify_cache_share = sharify_get_share(get_permalink());
+        return $sharify_cache_share;
+    }
+}
+
+$sharify_trans_period_plus = $sharify_trans_period_share + 54;
+
+function sharify_plus_count(){
+    if ( 1 == get_option('sharify_enable_cache') ) {
+        $sharify_cache_plus = get_transient( 'sharifytrans_plus_' . get_the_id() );
+        if ( false === $sharify_cache_plus ) { 
+            $sharify_cache_plus = sharify_get_plus(get_permalink());
+            set_transient('sharifytrans_plus_' . get_the_id(), $sharify_cache_plus, 60 * $sharify_trans_period_plus);
+        }
+        return $sharify_cache_plus;    
+    }
+    
+    else{
+        $sharify_cache_plus = sharify_get_plus(get_permalink());
+        return $sharify_cache_plus;
+    }
+
+}
+
+function delete_sharify_trans(){
+	global $wpdb;
+    $sharify_delete_trans_sql = 'DELETE FROM ' . $wpdb->options . ' WHERE option_name LIKE "_transient%\_sharifytrans\_%"';
+    $wpdb->query($sharify_delete_trans_sql);
+}
 
 ?>

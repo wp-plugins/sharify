@@ -6,17 +6,22 @@
 				<div class="sharify-container">
 				<ul>
 					<li class="sharify-btn-twitter">
-						<a title="Follow me on Twitter!" href="#button-placement">
+						<a  href="#button-placement">
 							<span class="sharify-title">Button Placement</span>
 						</a>
 					</li>
 					<li class="sharify-btn-twitter">
-						<a title="Follow me on Twitter!" href="#changelog">
+						<a href="#caching">
+							<span class="sharify-title">Caching</span>
+						</a>
+					</li>
+					<li class="sharify-btn-twitter">
+						<a href="#changelog">
 							<span class="sharify-title">Changelog</span>
 						</a>
 					</li>
 					<li class="sharify-btn-twitter">
-						<a title="Follow me on Twitter!" href="#follow">
+						<a href="#follow">
 							<span class="sharify-title">Follow</span>
 						</a>
 					</li>
@@ -46,9 +51,17 @@
 				<?php if ( 1 == get_option('display_button_pocket') ) echo 'checked="checked"'; ?> /> Pocket</label><br />
 				<p class="submit"><input type="submit" class="sharify-btn" value="<?php _e('Save Changes') ?>" /></p>
 			</div>
+			<div class="sec-title">Caching</div>
+			<div id="caching" class="sharify-setting-wrap">
+				<br><label><input class="sharify-input" type="checkbox" name="sharify_enable_cache" value="1" 
+				<?php if ( 1 == get_option('sharify_enable_cache') ) echo 'checked="checked"'; ?> /> Enable Caching? (recommend)</label> <br>
+				<p><strong>Caching Period (in minutes)</strong></p>
+				<input type="text" name="sharify_cache_period" value="<?php echo get_option('sharify_cache_period'); ?>" />
+				<p class="submit"><input onclick="document.write('<?php delete_sharify_trans(); echo 'Sharify is saving settings...'; ?>');" type="submit" class="sharify-btn" value="<?php _e('Save Changes') ?>" /></p>
+			</div>
 			<div class="sec-title">Changelog</div>	
 			<div id="changelog" class="sharify-setting-wrap">
-				<p><strong>Current Version: 1.7.1 - <?php printf( __('Last checked on %1$s at %2$s.'), date_i18n( get_option( 'date_format' ) ), date_i18n( get_option( 'time_format' ) ) ); ?></strong></p>
+				<p><strong>Current Version: 1.8 - <?php printf( __('Last checked on %1$s at %2$s.'), date_i18n( get_option( 'date_format' ) ), date_i18n( get_option( 'time_format' ) ) ); ?></strong></p>
 				<div class="sharify-container">
 				<ul>
 				<li class="sharify-btn-twitter">
@@ -57,6 +70,14 @@
 				</ul>
 				</div>
 				<hr>
+				<p class="sharify-version-no"><strong>Version 1.8</strong></p>
+				<ul>
+					<li>NEW: Abiliy to enable/disable caching</li>
+				    <li>NEW: Ability to change caching period</li>
+					<li>FIX: Transient API Fixes for caching</li>
+				</ul>
+				<hr>
+
 				<p class="sharify-version-no"><strong>Version 1.7.1</strong></p>
 				<ul>
 					<li>SSL Security Fix</li>

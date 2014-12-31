@@ -1,53 +1,73 @@
 === Sharify ===
-Contributors: imehedidip
-Tags: sharify, share buttons, respnonsive, sharing buttons, flat share buttons, share counts, shareoholic, responsive sharing buttons
-Requires at least: 3.0
+Contributors: imehedidip 
+Tags: sharify, share buttons, responsive, sharing buttons, flat share buttons, share counts, shareoholic, responsive sharing buttons
+Requires at least: 3.5
 Tested up to: 4.1
-Stable tag: 1.7.1
-License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Stable tag: 1.8
 
-Sharify is a simple, fast and feature-packed sharing butons plugin for your WordPress site!
+Sharify lets you add responsive and fast sharing buttons to our WordPress website. 
 
 == Description ==
 
-Sharify lets you add responsive and fast sharing buttons to our WordPress websie. The plugin is fast and 
-gets the job done. 
+Introducing Sharify, a simple and fast plugin that lets you add beautiful sharing buttons to your WordPress website!
 
-<hr>
-<a href="http://gdgtarena.com/2014/12/11/mifit-windows-8-1/" target="_blank">LIVE DEMO</a> | <a href="http://gdgtarena.com/2014/12/11/mifit-windows-8-1/" target="_blank">REVIEW</a>
-<hr>
+**<a href="http://gdgtarena.com/2014/12/30/thanks-amazing-2014" target="_blank">LIVE DEMO</a> - <a href="https://wordpress.org/support/view/plugin-reviews/sharify" target="_self">LEAVE A REVIEW</a>**
 
-<strong>Features</strong><br>
+**Features**
 
-* Fast
-* Responsive
-* Control Panel
-* Beautiful
-* Share counts
+*   Responsive Sharing Buttons for Twitter, Facebook, Google Plus, Reddit, Pocket, LinkedIn, Pinterest, Email, VKontake
+*   Ability to hide/display sharing buttons
+*   Share counts for Twitter, Facebook and Google Plus
+*   Cached share counts for less server load and faster webpage loading
+*   SSL Support
+*   Shortcode support - use [sharify] to display the sharing
+*   ...and more!
 
-If you have any feature suggestions, please let me know at Twitter: [@mehedih_](http://twitter.com/mehedih_)
+= Sharing Buttons =
+
+Sharify adds responsive and beautiful sharing buttons to your WordPress posts and pages. The buttons are responsive which looks beautiful on every device and theme. The plugin includes sharing buttons for Twitter, Facebook, Google+, LinkedIn, Pinterest and VKontake. Sharify also provides buttons for Reddit submit, Pocket and even Email.
+
+= Fast =
+
+Sharify is the fastest sharing plugin for WordPress. The plugin comes with caching which makes your site load faster and reduce server load. Sharify's Caching will cache the sharing counts - which you can disable from the admin panel. You can also change the caching period from the Sharify Admin Panel.
+
+= Admin Panel =
+
+Sharify comes with an admin panel where you can customize any settings you want. You can display and hide any sharing button you want. You can also disable caching and change the cache period. I'll be adding more options to the admin panel soon as well!
+
+= Weekly Updates =
+
+I update the plugin weekly to add new feature and fix bugs. You'll never face any problem with the plugin as we try to fix and release an update for every important bugs as soon as possible!
+
+
+If you've any problems with the plugin or would like to feedback, please <a href="http://twitter.com/mehedih_" target="_self" title="Feedback is really appreciated! ">let me know at Twitter: @mehedih</a>. Also, if you like and use the plugin, <a href="https://wordpress.org/support/view/plugin-reviews/sharify" target="_self" title="Please leave a review! :)">a review is really appreciated as well! </a>
+
+
+= Thanks for using the plugin! =
+ 
 
 == Installation ==
 
-1. Upload the entire `sharify` folder to the `/wp-content/plugins/` directory.
-1. Activate the plugin through the 'Plugins' menu in WordPress.
+**The easy way..**
 
-Use [sharify] to display the sharing buttons.
+Go to your WordPress Dashboard. Navigate to Plugins > Add New and then search for "Sharify". Click on Install and then Activate the Plugin.
 
+That's it, Sharify is now activated on your site!
+
+**The hard way..**
+
+Download Sharify and then extract the zip file and just drop the contents in the wp-content/plugins/ directory of your WordPress installation and then activate the Plugin from Plugins page.
+
+ 
 == Frequently Asked Questions ==
 
-Can I hide a sharing button?
+**How to hide a sharing button?**
 
-Sharify lets you show or hide any button you want. Just navigate to Dashboard > Settings > Sharify Settings.
+Hiding or displaying a sharing button is very easy. Just navigate to your WordPress Dashboard and go to Settings > Sharify Settings. Then check the buttons you want to display and Save Settings. If you want to hide a sharing button, just uncheck them Save Settings!
 
-How can I display the plugin?
+**What's the default caching period?**
 
-Use [sharify] shortcode to display the plugin.
-
-When is the next update coming?
-
-Next week ;)
+Sharify caches the sharing count for 30 minutes!
 
 == Screenshots ==
 
@@ -56,6 +76,13 @@ Next week ;)
 3. screenshot-3.png 
 
 == Changelog ==
+
+= 1.8 =
+
+* NEW: Abiliy to enable/disable caching
+* NEW: Ability to change caching period
+* FIX: Transient API Fixes for caching
+
 
 = 1.7.1 =
 
@@ -86,8 +113,6 @@ Next week ;)
 * Share count fix for Twitter, Facebook and Google+
 
 = 1.4 =
-
-<strong>Sorry, the last update was a mess! The latest update (v1.4) fixes all the bugs.</strong>
 
 * Twitter, Facebok, Google+, Reddit, Pocket, LinkedIn, Pinterest buttons fixed!
 

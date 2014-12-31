@@ -12,7 +12,8 @@ function admin_init_sharify() {
 	register_setting('sharify', 'display_button_pinterest');
 	register_setting('sharify', 'display_button_vk');
 	register_setting('sharify', 'display_buttons_under_post');
-	register_setting('sharify', 'load_google_fonts');
+	register_setting('sharify', 'sharify_enable_cache');
+	register_setting('sharify', 'sharify_cache_period');
 }
 
 //Add Options Page
