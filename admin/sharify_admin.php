@@ -14,6 +14,16 @@ function admin_init_sharify() {
 	register_setting('sharify', 'display_buttons_under_post');
 	register_setting('sharify', 'sharify_enable_cache');
 	register_setting('sharify', 'sharify_cache_period');
+	register_setting('sharify', 'sharify_twitter_btn_size');
+	register_setting('sharify', 'sharify_facebook_btn_size');
+	register_setting('sharify', 'sharify_gplus_btn_size');
+	register_setting('sharify', 'sharify_reddit_btn_size');
+	register_setting('sharify', 'sharify_pocket_btn_size');
+	register_setting('sharify', 'sharify_pinterest_btn_size');
+	register_setting('sharify', 'sharify_linkedin_btn_size');
+	register_setting('sharify', 'sharify_email_btn_size');
+	register_setting('sharify', 'sharify_vk_btn_size');
+	register_setting('sharify', 'sharify_use_gfont');
 }
 
 //Add Options Page

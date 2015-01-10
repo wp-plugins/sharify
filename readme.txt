@@ -77,6 +77,13 @@ Sharify caches the sharing count for 30 minutes!
 
 == Changelog ==
 
+= 1.9 =
+
+* NEW: Ability to change button size
+* NEW: Ability to disable Google Fonts
+* FIX: Fixed any issue where the CSS won't load on anywhere else other than posts
+* FIX: Improved admin panel
+
 = 1.8 =
 
 * NEW: Abiliy to enable/disable caching

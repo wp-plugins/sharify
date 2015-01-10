@@ -30,21 +30,25 @@ include_once ('admin/sharify_admin.php'); //Get Admin Settings
 include_once ('admin/sharify_count.php'); //Get Share Count
 
 //Enqueue Styles
-function sharify_css() {
-    wp_register_style( 'sharify', plugins_url( 'sharify.css', __FILE__ ), false, NULL, 'all' );
+function sharify_css()
+{
+    wp_register_style( 'sharify', plugins_url( 'sharify-style.php', __FILE__ ), false, NULL, 'all' );
     wp_register_style( 'sharify-icon', plugins_url( 'icon/css/sharify.css', __FILE__ ), false, NULL, 'all' );
-    wp_register_style( 'sharify-font', 'https://fonts.googleapis.com/css?family=Roboto:300', false, NULL, 'all' );
-    if (is_single()) {
-    	wp_enqueue_style('sharify');
-    	wp_enqueue_style('sharify-icon');
-    	wp_enqueue_style('sharify-font');
-    }
+	wp_enqueue_style('sharify');
+	wp_enqueue_style('sharify-icon');
+	
+	if ( 1 == get_option('sharify_use_gfont') )
+	{
+		wp_register_style( 'sharify-font', 'https://fonts.googleapis.com/css?family=Roboto:300', false, NULL, 'all' );
+		wp_enqueue_style('sharify-font');
+	}
 }
 
 add_action( 'wp_enqueue_scripts', 'sharify_css' );
 
 //Activate Sharify options
-function activate_sharify() {	
+function activate_sharify()
+{	
 	add_option('display_button_facebook'	, 1);
 	add_option('display_button_linkedin'	, 1);
 	add_option('display_button_twitter'		, 1);
@@ -55,11 +59,22 @@ function activate_sharify() {
 	add_option('display_button_pocket'		, 1);
 	add_option('display_button_vkt'		    , 0);
 	add_option('sharify_enable_cache'		, 1);
-	add_option('sharify_cache_period'		, "60");
+	add_option('sharify_cache_period'		, "30");
+	add_option('sharify_twitter_btn_size'	, 0);
+	add_option('sharify_facebook_btn_size'	, 0);
+	add_option('sharify_gplus_btn_size'	    , 0);
+	add_option('sharify_reddit_btn_size'	, 1);
+	add_option('sharify_pocket_btn_size'	, 1);
+	add_option('sharify_pinterest_btn_size'	, 1);
+	add_option('sharify_linkedin_btn_size'	, 1);
+	add_option('sharify_email_btn_size'		, 1);
+	add_option('sharify_vk_btn_size'		, 1);
+	add_option('sharify_use_gfont'			, 1);
 }
 
 //Deactivate Sharify options
-function deactive_sharify() {  
+function deactive_sharify()
+{  
 	delete_option('display_button_facebook');
 	delete_option('display_button_linkedin');
 	delete_option('display_button_twitter');
@@ -71,6 +86,16 @@ function deactive_sharify() {
 	delete_option('display_buttons_under_post');
 	delete_option('sharify_enable_cache');
 	delete_option('sharify_cache_period');
+	delete_option('sharify_twitter_btn_size');
+	delete_option('sharify_facebook_btn_size');
+	delete_option('sharify_gplus_btn_size');
+	delete_option('sharify_reddit_btn_size');
+	delete_option('sharify_pocket_btn_size');
+	delete_option('sharify_pinterest_btn_size');
+	delete_option('sharify_linkedin_btn_size');
+	delete_option('sharify_email_btn_size');
+	delete_option('sharify_vk_btn_size');
+	delete_option('sharify_use_gfont');
 }
 
 register_activation_hook(__FILE__, 'activate_sharify');
@@ -85,15 +110,23 @@ function sharify_show_buttons_shortcode()
 add_shortcode('sharify', 'sharify_show_buttons_shortcode');
 
 //Function for getting the image
-function sharify_catch_that_image() {
-  global $post, $posts;
-  $first_img = '';
-  ob_start();
-  ob_end_clean();
-  $output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $post->post_content, $matches);
-  $first_img = $matches[1][0];
+function sharify_catch_that_image()
+{
+	if ( has_post_thumbnail() ){
+		$sharify_img = the_post_thumbnail();
 
-  return $first_img;
+		return $sharify_img;
+		
+	} else {
+	  	global $post, $posts;
+	  	$first_img = '';
+	  	ob_start();
+	  	ob_end_clean();
+	  	$output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $post->post_content, $matches);
+	  	$first_img = $matches[1][0];
+
+	  	return $first_img;
+	}
 }
 
 //Sharify buttons
@@ -127,39 +160,45 @@ function sharify_display_button_buttons($sharify_buttons = "")
 								</a>
 							</li>';
 	if ( 1 == get_option('display_button_reddit') ) 
-		$sharify_buttons .= '<li class="sharify-btn-reddit sharify-btn-sec">
+		$sharify_buttons .= '<li class="sharify-btn-reddit">
 								<a title="Submit to Reddit" href="http://reddit.com/submit?url=' . get_permalink() . '" onclick="window.open(this.href, \'mywin\',\'left=50,top=50,width=950,height=450,toolbar=0\'); return false;">
-									<span><i class="sharify sharify-reddit"></i></span>
+									<span class="sharify-icon"><i class="sharify sharify-reddit"></i></span>
+									<span class="sharify-title">Reddit</span>
 								</a>
 							</li>';
 	if ( 1 == get_option('display_button_pocket') ) 
-		$sharify_buttons .= '<li class="sharify-btn-pocket sharify-btn-sec">
+		$sharify_buttons .= '<li class="sharify-btn-pocket">
 								<a title="Save to read later on Pocket" href="https://getpocket.com/save?url=' . urlencode(get_permalink()) . '&media=' . sharify_catch_that_image() . '" onclick="window.open(this.href, \'mywin\',\'left=50,top=50,width=600,height=350,toolbar=0\'); return false;">
-									<span><i class="sharify sharify-pocket"></i></span>
+									<span class="sharify-icon"><i class="sharify sharify-pocket"></i></span>
+									<span class="sharify-title">Pocket</span>
 								</a>
 							</li>';
 	if ( 1 == get_option('display_button_pinterest') ) 
-		$sharify_buttons .= '<li class="sharify-btn-pinterest sharify-btn-sec">
+		$sharify_buttons .= '<li class="sharify-btn-pinterest">
 								<a title="Share on Pinterest" href="http://pinterest.com/pin/create/button/?url=' . get_permalink() . '&media=' . sharify_catch_that_image() . '' . '&description='. get_the_title() .' - ' . get_permalink(). '" onclick="window.open(this.href, \'mywin\',\'left=50,top=50,width=600,height=350,toolbar=0\'); return false;">
-									<span><i class="sharify sharify-pinterest"></i></span>
+									<span class="sharify-icon"><i class="sharify sharify-pinterest"></i></span>
+									<span class="sharify-title">Pinterest</span>
 								</a>
 							</li>';
 	if ( 1 == get_option('display_button_linkedin') ) 
-		$sharify_buttons .= '<li class="sharify-btn-linkedin sharify-btn-sec">
+		$sharify_buttons .= '<li class="sharify-btn-linkedin">
 								<a title="Share on Linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=' . get_permalink() . '&title='. get_the_title() .'" onclick="if(!document.getElementById(\'td_social_networks_buttons\')){window.open(this.href, \'mywin\',\'left=50,top=50,width=600,height=350,toolbar=0\'); return false;}" >
-									<span><i class="sharify sharify-linkedin"></i></span>
+									<span class="sharify-icon"><i class="sharify sharify-linkedin"></i></span>
+									<span class="sharify-title">LinkedIn</span>
 								</a>
 							</li>';
 	if ( 1 == get_option('display_button_email') ) 
-		$sharify_buttons .= '<li class="sharify-btn-email sharify-btn-sec">
+		$sharify_buttons .= '<li class="sharify-btn-email">
 								<a title="Share via mail" href="mailto:?subject='.get_the_title().'&body=Hey, checkout this great article: '.get_permalink().'">
-									<span><i class="sharify sharify-mail"></i></span>
+									<span class="sharify-icon"><i class="sharify sharify-mail"></i></span>
+									<span class="sharify-title">Email</span>
 								</a>
 							</li>';
 	if ( 1 == get_option('display_button_vk') ) 
-		$sharify_buttons .= '<li class="sharify-btn-vk sharify-btn-sec">
+		$sharify_buttons .= '<li class="sharify-btn-vk">
 								<a title="Share on Vkontake" href="http://vkontakte.ru/share.php?url=' . get_permalink() . '" onclick="window.open(this.href, \'mywin\',\'left=50,top=50,width=950,height=450,toolbar=0\'); return false;">
-									<span><i class="sharify sharify-vk"></i></span>
+									<span class="sharify-icon"><i class="sharify sharify-vk"></i></span>
+									<span class="sharify-title">Vkontake</span>
 								</a>
 							</li>';
 	$sharify_buttons .= '</ul>';
@@ -180,47 +219,54 @@ function sharify_show_buttons_on_single($sharify_buttons)
 add_filter('the_content', 'sharify_show_buttons_on_single');
 
 //Load Admin Styles
-function load_sharify_wp_admin_style() {
-        wp_register_style('sharify_admin_css', plugin_dir_url( __FILE__ ) . 'admin/sharify-admin.css' );
-        wp_enqueue_style( 'sharify_admin_css' );
-        wp_register_style('sharify_icon', plugin_dir_url( __FILE__ ) . 'icon/css/sharify.css' );
-        wp_enqueue_style( 'sharify_icon' );
+function load_sharify_wp_admin_style()
+{
+    wp_register_style('sharify_admin_css', plugin_dir_url( __FILE__ ) . 'admin/sharify-admin.css' );
+    wp_enqueue_style( 'sharify_admin_css' );
+    wp_register_style('sharify_icon', plugin_dir_url( __FILE__ ) . 'icon/css/sharify.css' );
+    wp_enqueue_style( 'sharify_icon' );
 }
 
 add_action( 'admin_enqueue_scripts', 'load_sharify_wp_admin_style' );
 
 
 $sharify_trans_period = get_option('sharify_cache_period'); //Get the transient period
-function sharify_tweet_count(){
+
+function sharify_tweet_count()
+{
 	//If cache enabled
-    if ( 1 == get_option('sharify_enable_cache') ) {
+    if ( 1 == get_option('sharify_enable_cache') )
+    {
         $sharify_cache_tweet = get_transient( 'sharifytrans_tweet_' . get_the_id() );
-        if ( false === $sharify_cache_tweet ) { 
+
+        if ( false === $sharify_cache_tweet )
+        { 
             $sharify_cache_tweet = sharify_get_tweets(get_permalink());
             set_transient('sharifytrans_tweet_' . get_the_id(), $sharify_cache_tweet, 60 * $sharify_trans_period);
         }
+
         return $sharify_cache_tweet;    
-    }
-    //Else
-    else{
+    } else {
         $sharify_cache_tweet = sharify_get_tweets(get_permalink());
+
         return $sharify_cache_tweet;
     }
 }
 
 $sharify_trans_period_share = $sharify_trans_period + 88; //If a new transient is set on the same time, there may be high site load for some users. that's why i've delayed some of them.
 
-function sharify_share_count(){
-    if ( 1 == get_option('sharify_enable_cache') ) {
+function sharify_share_count()
+{
+    if ( 1 == get_option('sharify_enable_cache') )
+    {
         $sharify_cache_share = get_transient( 'sharifytrans_share_' . get_the_id() );
-        if ( false === $sharify_cache_share ) { 
+        if ( false === $sharify_cache_share )
+        { 
             $sharify_cache_share = sharify_get_share(get_permalink());
             set_transient('sharifytrans_share_' . get_the_id(), $sharify_cache_share, 60 * $sharify_trans_period_share);
         }
         return $sharify_cache_share;    
-    }
-    
-    else{
+    } else {
         $sharify_cache_share = sharify_get_share(get_permalink());
         return $sharify_cache_share;
     }
@@ -229,16 +275,15 @@ function sharify_share_count(){
 $sharify_trans_period_plus = $sharify_trans_period_share + 54;
 
 function sharify_plus_count(){
-    if ( 1 == get_option('sharify_enable_cache') ) {
+    if ( 1 == get_option('sharify_enable_cache') )
+    {
         $sharify_cache_plus = get_transient( 'sharifytrans_plus_' . get_the_id() );
         if ( false === $sharify_cache_plus ) { 
             $sharify_cache_plus = sharify_get_plus(get_permalink());
             set_transient('sharifytrans_plus_' . get_the_id(), $sharify_cache_plus, 60 * $sharify_trans_period_plus);
         }
         return $sharify_cache_plus;    
-    }
-    
-    else{
+    } else{
         $sharify_cache_plus = sharify_get_plus(get_permalink());
         return $sharify_cache_plus;
     }

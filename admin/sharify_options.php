@@ -11,6 +11,11 @@
 						</a>
 					</li>
 					<li class="sharify-btn-twitter">
+						<a href="#customization">
+							<span class="sharify-title">Customization</span>
+						</a>
+					</li>
+					<li class="sharify-btn-twitter">
 						<a href="#caching">
 							<span class="sharify-title">Caching</span>
 						</a>
@@ -37,18 +42,70 @@
 				<?php if ( 1 == get_option('display_button_facebook') ) echo 'checked="checked"'; ?> /> Facebook</label><br />
 				<br><label><input type="checkbox" class="sharify-input" name="display_button_google" value="1" 
 				<?php if ( 1 == get_option('display_button_google') ) echo 'checked="checked"'; ?> /> Google Plus</label><br />
-				<br><label><input type="checkbox" class="sharify-input" name="display_button_email" value="1" 
-				<?php if ( 1 == get_option('display_button_email') ) echo 'checked="checked"'; ?> /> Email</label><br />
 				<br><label><input type="checkbox" class="sharify-input" name="display_button_linkedin" value="1" 
 				<?php if ( 1 == get_option('display_button_linkedin') ) echo 'checked="checked"'; ?> /> Linkedin</label><br />
 				<br><label><input type="checkbox" class="sharify-input" name="display_button_pinterest" value="1" 
 				<?php if ( 1 == get_option('display_button_pinterest') ) echo 'checked="checked"'; ?> /> Pinterest</label><br />
-				<br><label><input type="checkbox" class="sharify-input" name="display_button_vk" value="1" 
-				<?php if ( 1 == get_option('display_button_vk') ) echo 'checked="checked"'; ?> /> VKontakte</label><br />
 				<br><label><input type="checkbox" class="sharify-input" name="display_button_reddit" value="1" 
 				<?php if ( 1 == get_option('display_button_reddit') ) echo 'checked="checked"'; ?> /> Reddit</label><br />
 				<br><label><input type="checkbox" class="sharify-input" name="display_button_pocket" value="1" 
 				<?php if ( 1 == get_option('display_button_pocket') ) echo 'checked="checked"'; ?> /> Pocket</label><br />
+				<br><label><input type="checkbox" class="sharify-input" name="display_button_email" value="1" 
+				<?php if ( 1 == get_option('display_button_email') ) echo 'checked="checked"'; ?> /> Email</label><br />
+				<br><label><input type="checkbox" class="sharify-input" name="display_button_vk" value="1" 
+				<?php if ( 1 == get_option('display_button_vk') ) echo 'checked="checked"'; ?> /> VKontakte</label><br />
+				<p class="submit"><input type="submit" class="sharify-btn" value="<?php _e('Save Changes') ?>" /></p>
+			</div>
+			<div class="sec-title">Customization</div>		
+			<div id="customization" class="sharify-setting-wrap">
+				<br><label><input type="checkbox" class="sharify-input" name="sharify_use_gfont" value="1" 
+				<?php if ( 1 == get_option('sharify_use_gfont') ) echo 'checked="checked"'; ?> /> Load Google Font?</label><br />
+				<br><hr>
+				<p class="sharify-version-no"><strong>Twitter</strong></p>
+				<label><input type="checkbox" class="sharify-input" name="sharify_twitter_btn_size" value="1" 
+				<?php if ( 1 == get_option('sharify_twitter_btn_size') ) echo 'checked="checked"'; ?> /> Display Small Button</label><br />
+				<br><hr>
+
+				<p class="sharify-version-no"><strong>Facebook</strong></p>
+				<label><input type="checkbox" class="sharify-input" name="sharify_facebook_btn_size" value="1" 
+				<?php if ( 1 == get_option('sharify_facebook_btn_size') ) echo 'checked="checked"'; ?> /> Display Small Button</label><br />
+				<br><hr>
+
+				<p class="sharify-version-no"><strong>Google+</strong></p>
+				<label><input type="checkbox" class="sharify-input" name="sharify_gplus_btn_size" value="1" 
+				<?php if ( 1 == get_option('sharify_gplus_btn_size') ) echo 'checked="checked"'; ?> /> Display Small Button</label><br />
+				<br><hr>
+
+				<p class="sharify-version-no"><strong>Reddit</strong></p>
+				<label><input type="checkbox" class="sharify-input" name="sharify_reddit_btn_size" value="1" 
+				<?php if ( 1 == get_option('sharify_reddit_btn_size') ) echo 'checked="checked"'; ?> /> Display Small Button</label><br />
+				<br><hr>
+
+				<p class="sharify-version-no"><strong>Pocket</strong></p>
+				<label><input type="checkbox" class="sharify-input" name="sharify_pocket_btn_size" value="1" 
+				<?php if ( 1 == get_option('sharify_pocket_btn_size') ) echo 'checked="checked"'; ?> /> Display Small Button</label><br />
+				<br><hr>
+
+				<p class="sharify-version-no"><strong>Pinterest</strong></p>
+				<label><input type="checkbox" class="sharify-input" name="sharify_pinterest_btn_size" value="1" 
+				<?php if ( 1 == get_option('sharify_pinterest_btn_size') ) echo 'checked="checked"'; ?> /> Display Small Button</label><br />
+				<br><hr>
+
+				<p class="sharify-version-no"><strong>LinkedIn</strong></p>
+				<label><input type="checkbox" class="sharify-input" name="sharify_linkedin_btn_size" value="1" 
+				<?php if ( 1 == get_option('sharify_linkedin_btn_size') ) echo 'checked="checked"'; ?> /> Display Small Button</label><br />
+				<br><hr>
+
+				<p class="sharify-version-no"><strong>Email</strong></p>
+				<label><input type="checkbox" class="sharify-input" name="sharify_email_btn_size" value="1" 
+				<?php if ( 1 == get_option('sharify_email_btn_size') ) echo 'checked="checked"'; ?> /> Display Small Button</label><br />
+				<br><hr>
+
+				<p class="sharify-version-no"><strong>VKontake</strong></p>
+				<label><input type="checkbox" class="sharify-input" name="sharify_vk_btn_size" value="1" 
+				<?php if ( 1 == get_option('sharify_vk_btn_size') ) echo 'checked="checked"'; ?> /> Display Small Button</label><br />
+				<br><hr>
+
 				<p class="submit"><input type="submit" class="sharify-btn" value="<?php _e('Save Changes') ?>" /></p>
 			</div>
 			<div class="sec-title">Caching</div>
@@ -57,7 +114,7 @@
 				<?php if ( 1 == get_option('sharify_enable_cache') ) echo 'checked="checked"'; ?> /> Enable Caching? (recommend)</label> <br>
 				<p><strong>Caching Period (in minutes)</strong></p>
 				<input type="text" name="sharify_cache_period" value="<?php echo get_option('sharify_cache_period'); ?>" />
-				<p class="submit"><input onclick="document.write('<?php delete_sharify_trans(); echo 'Sharify is saving settings...'; ?>');" type="submit" class="sharify-btn" value="<?php _e('Save Changes') ?>" /></p>
+				<p class="submit"><input onclick="document.write('<?php delete_sharify_trans(); ?>');" type="submit" class="sharify-btn" value="<?php _e('Save Changes') ?>" /></p>
 			</div>
 			<div class="sec-title">Changelog</div>	
 			<div id="changelog" class="sharify-setting-wrap">
@@ -70,9 +127,18 @@
 				</ul>
 				</div>
 				<hr>
+				<p class="sharify-version-no"><strong>Version 1.9</strong></p>
+				<ul>
+					<li>NEW: Ability to change button size</li>
+				    <li>NEW: Ability to disable Google Fonts</li>
+					<li>FIX: Fixed any issue where the CSS won't load on anywhere else other than posts</li>
+					<li>FIX: Improved admin panel</li>
+				</ul>
+				<hr>
+
 				<p class="sharify-version-no"><strong>Version 1.8</strong></p>
 				<ul>
-					<li>NEW: Abiliy to enable/disable caching</li>
+					<li>NEW: Ability to enable/disable caching</li>
 				    <li>NEW: Ability to change caching period</li>
 					<li>FIX: Transient API Fixes for caching</li>
 				</ul>
