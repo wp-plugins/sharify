@@ -77,7 +77,7 @@ Sharify caches the sharing count for 30 minutes!
 
 == Changelog ==
 
-= 1.9.1=
+= 1.9.1 =
 
 * Fixed an issue where the post thumbnail appeared at the top after V1.9
 
