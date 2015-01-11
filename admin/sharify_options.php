@@ -127,6 +127,11 @@
 				</ul>
 				</div>
 				<hr>
+				<p class="sharify-version-no"><strong>Version 1.9.1</strong></p>
+				<ul>
+					<li>Fixed an issue where the post thumbnail appeared at the top after V1.9</li>
+				</ul>
+				<hr>
 				<p class="sharify-version-no"><strong>Version 1.9</strong></p>
 				<ul>
 					<li>NEW: Ability to change button size</li>

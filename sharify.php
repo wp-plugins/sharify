@@ -5,7 +5,7 @@
  * Plugin URI: https://wordpress.org/plugins/sharify/
  * Description: Sharify is a fast and simple plugin for sharing buttons on WordPress. The plugin lets you display responsive sharing 
  * buttons on your WordPress website!
- * Version: 1.9
+ * Version: 1.9.1
  * Author: imehedidip
  * Author URI: http://twitter.com/mehedih_
  * Text Domain: sharify
@@ -113,9 +113,9 @@ add_shortcode('sharify', 'sharify_show_buttons_shortcode');
 function sharify_catch_that_image()
 {
 	if ( has_post_thumbnail() ){
-		$sharify_img = the_post_thumbnail();
-
-		return $sharify_img;
+		$sharify_thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'thumbnail' );
+		$sharify_thumb_url = $sharify_thumb['0'];
+		return $sharify_thumb_url;
 		
 	} else {
 	  	global $post, $posts;
@@ -168,7 +168,7 @@ function sharify_display_button_buttons($sharify_buttons = "")
 							</li>';
 	if ( 1 == get_option('display_button_pocket') ) 
 		$sharify_buttons .= '<li class="sharify-btn-pocket">
-								<a title="Save to read later on Pocket" href="https://getpocket.com/save?url=' . urlencode(get_permalink()) . '&media=' . sharify_catch_that_image() . '" onclick="window.open(this.href, \'mywin\',\'left=50,top=50,width=600,height=350,toolbar=0\'); return false;">
+								<a title="Save to read later on Pocket" href="https://getpocket.com/save?url=' . urlencode(get_permalink()) . '" onclick="window.open(this.href, \'mywin\',\'left=50,top=50,width=600,height=350,toolbar=0\'); return false;">
 									<span class="sharify-icon"><i class="sharify sharify-pocket"></i></span>
 									<span class="sharify-title">Pocket</span>
 								</a>
