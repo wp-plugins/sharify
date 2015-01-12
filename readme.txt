@@ -3,7 +3,7 @@ Contributors: imehedidip
 Tags: sharify, share buttons, responsive, sharing buttons, flat share buttons, share counts, shareoholic, responsive sharing buttons
 Requires at least: 3.5
 Tested up to: 4.1
-Stable tag: 1.9.1
+Stable tag: 1.9.2
 
 Sharify lets you add responsive and fast sharing buttons to our WordPress website. 
 
@@ -76,6 +76,11 @@ Sharify caches the sharing count for 30 minutes!
 3. screenshot-3.png 
 
 == Changelog ==
+
+= 1.9.2 =
+
+* Fix: An issue where Facebook Share Count won't appear if there is a integer on the permalink (url)
+* Removed: Caching for some issues with Facebook's API. It'll be added with the next major update, I promise. 
 
 = 1.9.1 =
 

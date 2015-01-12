@@ -12,8 +12,6 @@ function admin_init_sharify() {
 	register_setting('sharify', 'display_button_pinterest');
 	register_setting('sharify', 'display_button_vk');
 	register_setting('sharify', 'display_buttons_under_post');
-	register_setting('sharify', 'sharify_enable_cache');
-	register_setting('sharify', 'sharify_cache_period');
 	register_setting('sharify', 'sharify_twitter_btn_size');
 	register_setting('sharify', 'sharify_facebook_btn_size');
 	register_setting('sharify', 'sharify_gplus_btn_size');

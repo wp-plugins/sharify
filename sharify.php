@@ -5,12 +5,11 @@
  * Plugin URI: https://wordpress.org/plugins/sharify/
  * Description: Sharify is a fast and simple plugin for sharing buttons on WordPress. The plugin lets you display responsive sharing 
  * buttons on your WordPress website!
- * Version: 1.9.1
+ * Version: 1.9.2
  * Author: imehedidip
  * Author URI: http://twitter.com/mehedih_
  * Text Domain: sharify
  * License: GPL2
-
  * Copyright 2015  Mehedi  (email : mehedi.dip@outlook.com)
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License, version 2, as 
@@ -58,8 +57,6 @@ function activate_sharify()
 	add_option('display_buttons_under_post'	, 1);
 	add_option('display_button_pocket'		, 1);
 	add_option('display_button_vkt'		    , 0);
-	add_option('sharify_enable_cache'		, 1);
-	add_option('sharify_cache_period'		, "30");
 	add_option('sharify_twitter_btn_size'	, 0);
 	add_option('sharify_facebook_btn_size'	, 0);
 	add_option('sharify_gplus_btn_size'	    , 0);
@@ -84,8 +81,6 @@ function deactive_sharify()
 	delete_option('display_button_pocket');
 	delete_option('display_button_vk');
 	delete_option('display_buttons_under_post');
-	delete_option('sharify_enable_cache');
-	delete_option('sharify_cache_period');
 	delete_option('sharify_twitter_btn_size');
 	delete_option('sharify_facebook_btn_size');
 	delete_option('sharify_gplus_btn_size');
@@ -140,7 +135,7 @@ function sharify_display_button_buttons($sharify_buttons = "")
 								<a title="Tweet on Twitter" href="https://twitter.com/intent/tweet?text='.get_the_title().' - '.get_permalink().'" onclick="window.open(this.href, \'mywin\',\'left=50,top=50,width=600,height=350,toolbar=0\'); return false;">
 									<span class="sharify-icon"><i class="sharify sharify-twitter"></i></span>
 									<span class="sharify-title">Tweet</span>
-									<span class="sharify-count">'.sharify_tweet_count().'</span>
+									<span class="sharify-count">'.sharify_get_tweets(get_permalink()).'</span>
 								</a>
 							</li>';
 	if ( 1 == get_option('display_button_facebook') ) 
@@ -148,7 +143,7 @@ function sharify_display_button_buttons($sharify_buttons = "")
 								<a title="Share on Facebook" href="http://www.facebook.com/sharer.php?u=' . urlencode(get_permalink()) . '" onclick="window.open(this.href, \'mywin\',\'left=50,top=50,width=600,height=350,toolbar=0\'); return false;">
 									<span class="sharify-icon"><i class="sharify sharify-facebook"></i></span>
 									<span class="sharify-title">Share</span>
-									<span class="sharify-count">'.sharify_share_count().'</span>
+									<span class="sharify-count">'.sharify_get_share(get_permalink()).'</span>
 								</a>
 							</li>';
 	if ( 1 == get_option('display_button_google') ) 
@@ -156,7 +151,7 @@ function sharify_display_button_buttons($sharify_buttons = "")
 								<a title="Share on Google+" href="http://plus.google.com/share?url=' . get_permalink() . '" onclick="window.open(this.href, \'mywin\',\'left=50,top=50,width=600,height=350,toolbar=0\'); return false;">
 									<span class="sharify-icon"><i class="sharify sharify-gplus"></i></span>
 									<span class="sharify-title">+1</span>
-									<span class="sharify-count">'.sharify_plus_count().'</span>
+									<span class="sharify-count">'.sharify_get_plus(get_permalink()).'</span>
 								</a>
 							</li>';
 	if ( 1 == get_option('display_button_reddit') ) 
@@ -228,72 +223,5 @@ function load_sharify_wp_admin_style()
 }
 
 add_action( 'admin_enqueue_scripts', 'load_sharify_wp_admin_style' );
-
-
-$sharify_trans_period = get_option('sharify_cache_period'); //Get the transient period
-
-function sharify_tweet_count()
-{
-	//If cache enabled
-    if ( 1 == get_option('sharify_enable_cache') )
-    {
-        $sharify_cache_tweet = get_transient( 'sharifytrans_tweet_' . get_the_id() );
-
-        if ( false === $sharify_cache_tweet )
-        { 
-            $sharify_cache_tweet = sharify_get_tweets(get_permalink());
-            set_transient('sharifytrans_tweet_' . get_the_id(), $sharify_cache_tweet, 60 * $sharify_trans_period);
-        }
-
-        return $sharify_cache_tweet;    
-    } else {
-        $sharify_cache_tweet = sharify_get_tweets(get_permalink());
-
-        return $sharify_cache_tweet;
-    }
-}
-
-$sharify_trans_period_share = $sharify_trans_period + 88; //If a new transient is set on the same time, there may be high site load for some users. that's why i've delayed some of them.
-
-function sharify_share_count()
-{
-    if ( 1 == get_option('sharify_enable_cache') )
-    {
-        $sharify_cache_share = get_transient( 'sharifytrans_share_' . get_the_id() );
-        if ( false === $sharify_cache_share )
-        { 
-            $sharify_cache_share = sharify_get_share(get_permalink());
-            set_transient('sharifytrans_share_' . get_the_id(), $sharify_cache_share, 60 * $sharify_trans_period_share);
-        }
-        return $sharify_cache_share;    
-    } else {
-        $sharify_cache_share = sharify_get_share(get_permalink());
-        return $sharify_cache_share;
-    }
-}
-
-$sharify_trans_period_plus = $sharify_trans_period_share + 54;
-
-function sharify_plus_count(){
-    if ( 1 == get_option('sharify_enable_cache') )
-    {
-        $sharify_cache_plus = get_transient( 'sharifytrans_plus_' . get_the_id() );
-        if ( false === $sharify_cache_plus ) { 
-            $sharify_cache_plus = sharify_get_plus(get_permalink());
-            set_transient('sharifytrans_plus_' . get_the_id(), $sharify_cache_plus, 60 * $sharify_trans_period_plus);
-        }
-        return $sharify_cache_plus;    
-    } else{
-        $sharify_cache_plus = sharify_get_plus(get_permalink());
-        return $sharify_cache_plus;
-    }
-
-}
-
-function delete_sharify_trans(){
-	global $wpdb;
-    $sharify_delete_trans_sql = 'DELETE FROM ' . $wpdb->options . ' WHERE option_name LIKE "_transient%\_sharifytrans\_%"';
-    $wpdb->query($sharify_delete_trans_sql);
-}
 
 ?>

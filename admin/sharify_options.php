@@ -16,11 +16,6 @@
 						</a>
 					</li>
 					<li class="sharify-btn-twitter">
-						<a href="#caching">
-							<span class="sharify-title">Caching</span>
-						</a>
-					</li>
-					<li class="sharify-btn-twitter">
 						<a href="#changelog">
 							<span class="sharify-title">Changelog</span>
 						</a>
@@ -108,17 +103,9 @@
 
 				<p class="submit"><input type="submit" class="sharify-btn" value="<?php _e('Save Changes') ?>" /></p>
 			</div>
-			<div class="sec-title">Caching</div>
-			<div id="caching" class="sharify-setting-wrap">
-				<br><label><input class="sharify-input" type="checkbox" name="sharify_enable_cache" value="1" 
-				<?php if ( 1 == get_option('sharify_enable_cache') ) echo 'checked="checked"'; ?> /> Enable Caching? (recommend)</label> <br>
-				<p><strong>Caching Period (in minutes)</strong></p>
-				<input type="text" name="sharify_cache_period" value="<?php echo get_option('sharify_cache_period'); ?>" />
-				<p class="submit"><input onclick="document.write('<?php delete_sharify_trans(); ?>');" type="submit" class="sharify-btn" value="<?php _e('Save Changes') ?>" /></p>
-			</div>
 			<div class="sec-title">Changelog</div>	
 			<div id="changelog" class="sharify-setting-wrap">
-				<p><strong>Current Version: 1.8 - <?php printf( __('Last checked on %1$s at %2$s.'), date_i18n( get_option( 'date_format' ) ), date_i18n( get_option( 'time_format' ) ) ); ?></strong></p>
+				<p><strong>Current Version: 1.9.2 - <?php printf( __('Last checked on %1$s at %2$s.'), date_i18n( get_option( 'date_format' ) ), date_i18n( get_option( 'time_format' ) ) ); ?></strong></p>
 				<div class="sharify-container">
 				<ul>
 				<li class="sharify-btn-twitter">
@@ -126,6 +113,12 @@
 				</li><br>
 				</ul>
 				</div>
+				<hr>
+				<p class="sharify-version-no"><strong>Version 1.9.1</strong></p>
+				<ul>
+					<li>Fix: An issue where Facebook Share Count won't appear if there is a integer on the permalink (url)</li>
+					<li>Removed: Caching for some issues with Facebook's API. It'll be added with the next major update, I promise.</li>
+				</ul>
 				<hr>
 				<p class="sharify-version-no"><strong>Version 1.9.1</strong></p>
 				<ul>
