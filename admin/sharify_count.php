@@ -8,13 +8,13 @@ function sharify_get_tweets($url) {
 
 //Get Facebook Share Count
 function sharify_get_share($url) {
+    $url = urlencode($url);
     $facebookcount = json_decode( file_get_contents( 'http://graph.facebook.com/'.$url ) );
     return $facebookcount->shares;   
 }
 
 //Get Plus One Count
 function sharify_get_plus($url) {
-
     $curl = curl_init();
     curl_setopt($curl, CURLOPT_URL, "https://clients6.google.com/rpc");
     curl_setopt($curl, CURLOPT_POST, 1);

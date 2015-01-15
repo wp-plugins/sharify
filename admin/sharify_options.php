@@ -114,6 +114,12 @@
 				</ul>
 				</div>
 				<hr>
+				<p class="sharify-version-no"><strong>Version 1.9.2</strong></p>
+				<ul>
+					<li>Fixed some bugs</li>
+					<li>Preparing for the big release, 2.0!</li>
+				</ul>
+				<hr>
 				<p class="sharify-version-no"><strong>Version 1.9.1</strong></p>
 				<ul>
 					<li>Fix: An issue where Facebook Share Count won't appear if there is a integer on the permalink (url)</li>
