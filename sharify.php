@@ -135,7 +135,7 @@ function sharify_display_button_buttons($sharify_buttons = "")
 								<a title="Tweet on Twitter" href="https://twitter.com/intent/tweet?text='.get_the_title().' - '.get_permalink().'" onclick="window.open(this.href, \'mywin\',\'left=50,top=50,width=600,height=350,toolbar=0\'); return false;">
 									<span class="sharify-icon"><i class="sharify sharify-twitter"></i></span>
 									<span class="sharify-title">Tweet</span>
-									<span class="sharify-count">'.sharify_get_tweets(get_permalink()).'</span>
+									<span class="sharify-count">'.sharify_get_count(''.get_permalink().'', false, false, true, false, false).'</span>
 								</a>
 							</li>';
 	if ( 1 == get_option('display_button_facebook') ) 
@@ -143,7 +143,7 @@ function sharify_display_button_buttons($sharify_buttons = "")
 								<a title="Share on Facebook" href="http://www.facebook.com/sharer.php?u=' . urlencode(get_permalink()) . '" onclick="window.open(this.href, \'mywin\',\'left=50,top=50,width=600,height=350,toolbar=0\'); return false;">
 									<span class="sharify-icon"><i class="sharify sharify-facebook"></i></span>
 									<span class="sharify-title">Share</span>
-									<span class="sharify-count">'.sharify_get_share(get_permalink()).'</span>
+									<span class="sharify-count">'.sharify_get_count(''.get_permalink().'', false, true, false, false, false).'</span>
 								</a>
 							</li>';
 	if ( 1 == get_option('display_button_google') ) 
@@ -151,7 +151,7 @@ function sharify_display_button_buttons($sharify_buttons = "")
 								<a title="Share on Google+" href="http://plus.google.com/share?url=' . get_permalink() . '" onclick="window.open(this.href, \'mywin\',\'left=50,top=50,width=600,height=350,toolbar=0\'); return false;">
 									<span class="sharify-icon"><i class="sharify sharify-gplus"></i></span>
 									<span class="sharify-title">+1</span>
-									<span class="sharify-count">'.sharify_get_plus(get_permalink()).'</span>
+									<span class="sharify-count">'.sharify_get_count(''.get_permalink().'', false, false, false, true, false).'</span>
 								</a>
 							</li>';
 	if ( 1 == get_option('display_button_reddit') ) 
@@ -180,6 +180,7 @@ function sharify_display_button_buttons($sharify_buttons = "")
 								<a title="Share on Linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=' . get_permalink() . '&title='. get_the_title() .'" onclick="if(!document.getElementById(\'td_social_networks_buttons\')){window.open(this.href, \'mywin\',\'left=50,top=50,width=600,height=350,toolbar=0\'); return false;}" >
 									<span class="sharify-icon"><i class="sharify sharify-linkedin"></i></span>
 									<span class="sharify-title">LinkedIn</span>
+									<span class="sharify-count">'.sharify_get_count(''.get_permalink().'', false, false, false, false, true).'</span>
 								</a>
 							</li>';
 	if ( 1 == get_option('display_button_email') ) 

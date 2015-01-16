@@ -105,7 +105,7 @@
 			</div>
 			<div class="sec-title">Changelog</div>	
 			<div id="changelog" class="sharify-setting-wrap">
-				<p><strong>Current Version: 1.9.2 - <?php printf( __('Last checked on %1$s at %2$s.'), date_i18n( get_option( 'date_format' ) ), date_i18n( get_option( 'time_format' ) ) ); ?></strong></p>
+				<p><strong>Current Version: 1.9.4 - <?php printf( __('Last checked on %1$s at %2$s.'), date_i18n( get_option( 'date_format' ) ), date_i18n( get_option( 'time_format' ) ) ); ?></strong></p>
 				<div class="sharify-container">
 				<ul>
 				<li class="sharify-btn-twitter">
@@ -114,13 +114,19 @@
 				</ul>
 				</div>
 				<hr>
-				<p class="sharify-version-no"><strong>Version 1.9.2</strong></p>
+				<p class="sharify-version-no"><strong>Version 1.9.4</strong></p>
+				<ul>
+					<li>NEW: LinkedIn Share Count</li>
+					<li>Some bug fixes</li>
+				</ul>
+				<hr>
+				<p class="sharify-version-no"><strong>Version 1.9.3</strong></p>
 				<ul>
 					<li>Fixed some bugs</li>
 					<li>Preparing for the big release, 2.0!</li>
 				</ul>
 				<hr>
-				<p class="sharify-version-no"><strong>Version 1.9.1</strong></p>
+				<p class="sharify-version-no"><strong>Version 1.9.2</strong></p>
 				<ul>
 					<li>Fix: An issue where Facebook Share Count won't appear if there is a integer on the permalink (url)</li>
 					<li>Removed: Caching for some issues with Facebook's API. It'll be added with the next major update, I promise.</li>
