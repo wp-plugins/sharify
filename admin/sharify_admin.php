@@ -22,6 +22,25 @@ function admin_init_sharify() {
 	register_setting('sharify', 'sharify_email_btn_size');
 	register_setting('sharify', 'sharify_vk_btn_size');
 	register_setting('sharify', 'sharify_use_gfont');
+	register_setting('sharify', 'sharify_cache_counts');
+	register_setting('sharify', 'sharify_cache_count_period');
+	register_setting('sharify', 'sharify_cpm_twitter');
+	register_setting('sharify', 'sharify_cph_twitter');
+	register_setting('sharify', 'sharify_cpm_fb');
+	register_setting('sharify', 'sharify_cph_fb');
+	register_setting('sharify', 'sharify_cpm_gplus');
+	register_setting('sharify', 'sharify_cph_gplus');
+	register_setting('sharify', 'sharify_cpm_linked');
+	register_setting('sharify', 'sharify_cph_linked');
+	register_setting('sharify', 'sharify_cpm_pin');
+	register_setting('sharify', 'sharify_cph_pin');
+	register_setting('sharify', 'sharify_cpm_rdt');
+	register_setting('sharify', 'sharify_cph_rdt');
+	register_setting('sharify', 'sharify_cpm_vk');
+	register_setting('sharify', 'sharify_cph_vk');
+	register_setting('sharify', 'sharify_cpm_mail');
+	register_setting('sharify', 'sharify_cph_mail');
+	register_setting('sharify', 'sharify_remove_data');
 }
 
 //Add Options Page

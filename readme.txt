@@ -1,11 +1,11 @@
-=== Sharify ===
+=== Sharify Social Share Buttons===
 Contributors: imehedidip 
-Tags: sharify, share buttons, responsive, sharing buttons, flat share buttons, share counts, shareoholic, responsive sharing buttons
+Tags: add this, add to any, AddThis, addtoany, aim, bookmark, bookmark button, bookmarking, bookmarks, bookmarks menu, button, del.icio.us, Digg, evernote, Facebook, facebook badge, facebook button, facebook like, facebook like box, facebook meta, facebook plugin, facebook promotion, Facebook send button, facebook share, facebook share button, facebook sidebar, floating buttons, goo.gl, google, google +1, google bookmarks, google plus, google plus one, google plus share, Google share, google widget, Google+1, icon, icons, instapaper, Like, like box, like button, linkedin, links, myspace, network, online sharing, page, pages, pin, pin it, pinterest, plus one, plusone, post buttons, publish Facebook, Reddit, Share, share and enjoy, share and follow, share button, share buttons, share facebook, share links, share this, Shareaholic, sharebar, shareholic, sharethis, sharing, sharing is caring, shortcode, sociable, social, social bookmark, social bookmarking, social bookmarks, social buttons, social icons, social media, social media share, social media sharing, Social Media Widget, Social Plugins, social share, Social Share Buttons, social sharing, socialize, stumbleupon, tumblr, tweet, tweet button, twitter, twitter button, twitter share, twitter share button, wpmu, sharify
 Requires at least: 3.5
 Tested up to: 4.1
-Stable tag: 1.9.4
+Stable tag: 2.0
 
-Sharify lets you add responsive and fast sharing buttons to our WordPress website. 
+Sharify lets you add Social Share Buttons for Twitter, Facebok, Google+ and more to your WordPress website easily!
 
 == Description ==
 
@@ -17,7 +17,8 @@ Introducing Sharify, a simple and fast plugin that lets you add beautiful sharin
 
 *   Responsive Sharing Buttons for Twitter, Facebook, Google Plus, Reddit, Pocket, LinkedIn, Pinterest, Email, VKontake
 *   Ability to hide/display sharing buttons
-*   Share counts for Twitter, Facebook and Google Plus
+*   Ability to change color of sharing buttons
+*   Share counts for Twitter, Facebook Google Plus and LinkedIn!
 *   Cached share counts for less server load and faster webpage loading
 *   SSL Support
 *   Shortcode support - use [sharify] to display the sharing
@@ -76,6 +77,13 @@ Sharify caches the sharing count for 30 minutes!
 3. screenshot-3.png 
 
 == Changelog ==
+
+= 2.0 =
+
+* NEW: Ability to customize Share Buttons' color!
+* NEW: Added Cache support!
+* NEW: Improved Admin panel!
+* Performance improvements and bug fixes.
 
 = 1.9.4 =
 
