@@ -48,8 +48,7 @@
 						<?php if ( 1 == get_option('sharify_use_gfont') ) echo 'checked="checked"'; ?> /> Load Google Font?</label><br />
 						<br><label><input class="sharify-input" type="checkbox" name="sharify_cache_counts" value="1" 
 						<?php if ( 1 == get_option('sharify_cache_counts') ) echo 'checked="checked"'; ?> /> Enable Caching? (recommend)</label> <br>
-						<p><strong>Caching Period (in minutes)</strong></p>
-						<input type="text" name="sharify_cache_count_period" value="<?php echo get_option('sharify_cache_count_period'); ?>" />
+						<p class="submit"><input onclick="document.write('<?php delete_sharify_trans(); ?>');" type="submit" class="sharify-delete-cache" value="<?php _e('Delete Cached Counts') ?>" /></p>
 					</div>
 
 					<!--Twitter-->
