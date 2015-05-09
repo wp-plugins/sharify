@@ -5,7 +5,7 @@
  * Plugin URI: https://wordpress.org/plugins/sharify/
  * Description: Sharify is a fast and simple plugin for sharing buttons on WordPress. The plugin lets you display responsive sharing 
  * buttons on your WordPress website!
- * Version: 2.4
+ * Version: 2.5
  * Author: imehedidip
  * Author URI: http://twitter.com/mehedih_
  * Text Domain: sharify
@@ -275,7 +275,7 @@ add_action( 'admin_enqueue_scripts', 'load_sharify_wp_admin_style' );
 register_activation_hook(__FILE__, 'sharify_plugin_activation');
 function sharify_plugin_activation() {
   $notices= get_option('sharify_plugin_deferred_admin_notices', array());
-  $notices[]= "Thanks for using Sharify! Please make sure to <a href='https://wordpress.org/support/view/plugin-reviews/sharify#postform' title='Reviews are really apperciated :)'>leave a review </a>, and <a href='http://twitter.com/mehedih_' title='Follow me on Twitter'>follow the developer </a> on Twitter for the latest updates on Sharify! And <a href='".get_bloginfo('url') . "/wp-admin/options-general.php?page=sharify"."'>click here to go to Sharify Admin Panel!</a>";
+  $notices[]= "<strong>Due to some private projects, I'm not able to update Sharify regularly. If you need support, please contact me <a href='http://twitter.com/mehedih_' title='Follow me on Twitter'>on Twitter to get fast support! </a> I'll be back soon, promise ;)</strong><br /><br/>Thanks for using Sharify! Please make sure to <a href='https://wordpress.org/support/view/plugin-reviews/sharify#postform' title='Reviews are really apperciated :)'>leave a review </a>, and <a href='http://twitter.com/mehedih_' title='Follow me on Twitter'>follow the developer </a> on Twitter for the latest updates on Sharify! And <a href='".get_bloginfo('url') . "/wp-admin/options-general.php?page=sharify"."'>click here to go to Sharify Admin Panel!</a>";
   update_option('sharify_plugin_deferred_admin_notices', $notices);
 }
 
