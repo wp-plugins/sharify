@@ -5,7 +5,7 @@
  * Plugin URI: https://wordpress.org/plugins/sharify/
  * Description: Sharify is a fast and simple plugin for sharing buttons on WordPress. The plugin lets you display responsive sharing 
  * buttons on your WordPress website!
- * Version: 2.5
+ * Version: 3.0
  * Author: imehedidip
  * Author URI: http://twitter.com/mehedih_
  * Text Domain: sharify
@@ -26,8 +26,6 @@
 */
 
 include_once ('admin/sharify_admin.php'); //Get Admin Settings
-include_once ('admin/sharify_count.php'); //Get Share Count
-include_once ('admin/sharify_cache.php'); //Get Sharify Cache
 
 //Enqueue Styles
 function sharify_css()
@@ -36,10 +34,11 @@ function sharify_css()
     wp_register_style( 'sharify-icon', plugins_url( 'icon/css/sharify.css', __FILE__ ), false, NULL, 'all' );
 	wp_enqueue_style('sharify');
 	wp_enqueue_style('sharify-icon');
+	wp_enqueue_script( 'sharify-counts', plugins_url( 'admin/inc/sharifycounts.js', __FILE__ ), array( 'jquery' ), '1.2', true );
 	
 	if ( 1 == get_option('sharify_use_gfont') )
 	{
-		wp_register_style( 'sharify-font', 'https://fonts.googleapis.com/css?family=Roboto:300', false, NULL, 'all' );
+		wp_register_style( 'sharify-font', 'http://fonts.googleapis.com/css?family=Roboto+Condensed:300', false, NULL, 'all' );
 		wp_enqueue_style('sharify-font');
 	}
 }
@@ -56,6 +55,7 @@ function activate_sharify()
 	add_option('display_button_reddit'		, 1);
 	add_option('display_button_google'	    , 1);
 	add_option('display_buttons_under_post'	, 1);
+	add_option('display_buttons_before_post', 1);
 	add_option('display_button_pocket'		, 1);
 	add_option('display_button_vkt'		    , 0);
 	add_option('sharify_twitter_btn_size'	, 0);
@@ -69,8 +69,6 @@ function activate_sharify()
 	add_option('sharify_vk_btn_size'		, 1);
 	add_option('sharify_use_gfont'			, 1);
 	add_option('sharify_remove_data'		, 1);
-	add_option('sharify_cache_counts'		, 1);
-	add_option('sharify_cache_count_period'	, "30");
 	add_option('sharify_cpm_twitter'		, "#4db2ec");
 	add_option('sharify_cph_twitter'		, "#3498db");
 	add_option('sharify_cpm_fb'				, "#3b5998");
@@ -105,6 +103,7 @@ function deactive_sharify()
 	delete_option('display_button_pocket');
 	delete_option('display_button_vk');
 	delete_option('display_buttons_under_post');
+	delete_option('display_buttons_before_post');
 	delete_option('sharify_twitter_btn_size');
 	delete_option('sharify_facebook_btn_size');
 	delete_option('sharify_gplus_btn_size');
@@ -115,8 +114,6 @@ function deactive_sharify()
 	delete_option('sharify_email_btn_size');
 	delete_option('sharify_vk_btn_size');
 	delete_option('sharify_use_gfont');
-	delete_option('sharify_cache_counts');
-	delete_option('sharify_cache_count_period');
 	delete_option('sharify_cpm_twitter');
 	delete_option('sharify_cph_twitter');
 	delete_option('sharify_cpm_fb');
@@ -179,7 +176,7 @@ function sharify_display_button_buttons($sharify_buttons = "")
 								<a title="Tweet on Twitter" href="https://twitter.com/intent/tweet?text='.get_the_title().' - '.get_permalink().'" onclick="window.open(this.href, \'mywin\',\'left=50,top=50,width=600,height=350,toolbar=0\'); return false;">
 									<span class="sharify-icon"><i class="sharify sharify-twitter"></i></span>
 									<span class="sharify-title">Tweet</span>
-									<span class="sharify-count">'.sharify_get_tweet_count().'</span>
+									<span class="sharify-count" id="twitter" data-url="'.get_permalink().'" data-text="'.get_the_title().' - " >0</span>
 								</a>
 							</li>';
 	if ( 1 == get_option('display_button_facebook') ) 
@@ -187,7 +184,7 @@ function sharify_display_button_buttons($sharify_buttons = "")
 								<a title="Share on Facebook" href="http://www.facebook.com/sharer.php?u=' . urlencode(get_permalink()) . '" onclick="window.open(this.href, \'mywin\',\'left=50,top=50,width=600,height=350,toolbar=0\'); return false;">
 									<span class="sharify-icon"><i class="sharify sharify-facebook"></i></span>
 									<span class="sharify-title">Share</span>
-									<span class="sharify-count">'.sharify_get_share_count().'</span>
+									<span class="sharify-count" id="facebook" data-url="'.get_permalink().'" data-text="'.get_the_title().' - " >0</span>
 								</a>
 							</li>';
 	if ( 1 == get_option('display_button_google') ) 
@@ -195,7 +192,6 @@ function sharify_display_button_buttons($sharify_buttons = "")
 								<a title="Share on Google+" href="http://plus.google.com/share?url=' . get_permalink() . '" onclick="window.open(this.href, \'mywin\',\'left=50,top=50,width=600,height=350,toolbar=0\'); return false;">
 									<span class="sharify-icon"><i class="sharify sharify-gplus"></i></span>
 									<span class="sharify-title">+1</span>
-									<span class="sharify-count">'.sharify_get_plus_count().'</span>
 								</a>
 							</li>';
 	if ( 1 == get_option('display_button_reddit') ) 
@@ -224,7 +220,7 @@ function sharify_display_button_buttons($sharify_buttons = "")
 								<a title="Share on Linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=' . get_permalink() . '&title='. get_the_title() .'" onclick="if(!document.getElementById(\'td_social_networks_buttons\')){window.open(this.href, \'mywin\',\'left=50,top=50,width=600,height=350,toolbar=0\'); return false;}" >
 									<span class="sharify-icon"><i class="sharify sharify-linkedin"></i></span>
 									<span class="sharify-title">LinkedIn</span>
-									<span class="sharify-count">'.sharify_get_linked_count().'</span>
+									<span class="sharify-count" id="linkedin" data-url="'.get_permalink().'" data-text="'.get_the_title().' - " >0</span>
 								</a>
 							</li>';
 	if ( 1 == get_option('display_button_email') ) 
@@ -249,7 +245,7 @@ function sharify_display_button_buttons($sharify_buttons = "")
 //Add Sharify buttons automatically
 function sharify_show_buttons_on_single($sharify_buttons)
 {
-    if ( is_single() && ( 1 == get_option('display_buttons_under_post') )  ) {
+    if ( is_single() && (0 == get_option('display_buttons_before_post')) && ( 1 == get_option('display_buttons_under_post') )  ) {
 		$sharify_buttons = sharify_display_button_buttons($sharify_buttons);
 	}
 	
@@ -257,6 +253,18 @@ function sharify_show_buttons_on_single($sharify_buttons)
 }
 
 add_filter('the_content', 'sharify_show_buttons_on_single');
+
+function sharify_show_buttons_on_single_top($content)
+{
+	if ( is_single() && ( 1 == get_option('display_buttons_before_post') ) ){
+		$add_sharify = sharify_display_button_buttons($sharify_buttons);
+		$content = $add_sharify . $content;
+	}
+	
+	return $content;
+}
+
+add_filter('the_content', 'sharify_show_buttons_on_single_top');
 
 //Load Admin Styles
 function load_sharify_wp_admin_style()
@@ -275,7 +283,7 @@ add_action( 'admin_enqueue_scripts', 'load_sharify_wp_admin_style' );
 register_activation_hook(__FILE__, 'sharify_plugin_activation');
 function sharify_plugin_activation() {
   $notices= get_option('sharify_plugin_deferred_admin_notices', array());
-  $notices[]= "<strong>Due to some private projects, I'm not able to update Sharify regularly. If you need support, please contact me <a href='http://twitter.com/mehedih_' title='Follow me on Twitter'>on Twitter to get fast support! </a> I'll be back soon, promise ;)</strong><br /><br/>Thanks for using Sharify! Please make sure to <a href='https://wordpress.org/support/view/plugin-reviews/sharify#postform' title='Reviews are really apperciated :)'>leave a review </a>, and <a href='http://twitter.com/mehedih_' title='Follow me on Twitter'>follow the developer </a> on Twitter for the latest updates on Sharify! And <a href='".get_bloginfo('url') . "/wp-admin/options-general.php?page=sharify"."'>click here to go to Sharify Admin Panel!</a>";
+  $notices[]= "Thanks for using Sharify! Please make sure to <a href='https://wordpress.org/support/view/plugin-reviews/sharify#postform' title='Reviews are really apperciated :)'>leave a review </a>, and <a href='http://twitter.com/mehedih_' title='Follow me on Twitter'>follow the developer </a> on Twitter for the latest updates on Sharify! And <a href='".get_bloginfo('url') . "/wp-admin/options-general.php?page=sharify"."'>click here to go to Sharify Admin Panel!</a>";
   update_option('sharify_plugin_deferred_admin_notices', $notices);
 }
 
@@ -294,12 +302,6 @@ register_deactivation_hook(__FILE__, 'sharify_plugin_deactivation');
 function sharify_plugin_deactivation() {
   delete_option('sharify_plugin_version'); 
   delete_option('sharify_plugin_deferred_admin_notices'); 
-}
-    
-function delete_sharify_trans(){
-	global $wpdb;
-    $sharify_delete_trans_sql = 'DELETE FROM ' . $wpdb->options . ' WHERE option_name LIKE "_transient%\_sharify\_%"';
-    $wpdb->query($sharify_delete_trans_sql);
 }
 
 ?>

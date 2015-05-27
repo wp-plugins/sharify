@@ -3,7 +3,7 @@ Contributors: imehedidip
 Tags: add this, add to any, AddThis, addtoany, aim, bookmark, bookmark button, bookmarking, bookmarks, bookmarks menu, button, del.icio.us, Digg, evernote, Facebook, facebook badge, facebook button, facebook like, facebook like box, facebook meta, facebook plugin, facebook promotion, Facebook send button, facebook share, facebook share button, facebook sidebar, floating buttons, goo.gl, google, google +1, google bookmarks, google plus, google plus one, google plus share, Google share, google widget, Google+1, icon, icons, instapaper, Like, like box, like button, linkedin, links, myspace, network, online sharing, page, pages, pin, pin it, pinterest, plus one, plusone, post buttons, publish Facebook, Reddit, Share, share and enjoy, share and follow, share button, share buttons, share facebook, share links, share this, Shareaholic, sharebar, shareholic, sharethis, sharing, sharing is caring, shortcode, sociable, social, social bookmark, social bookmarking, social bookmarks, social buttons, social icons, social media, social media share, social media sharing, Social Media Widget, Social Plugins, social share, Social Share Buttons, social sharing, socialize, stumbleupon, tumblr, tweet, tweet button, twitter, twitter button, twitter share, twitter share button, wpmu, sharify
 Requires at least: 3.5
 Tested up to: 4.2.2
-Stable tag: 2.5
+Stable tag: 3.0
 
 Sharify lets you add Social Share Buttons for Twitter, Facebok, Google+ and more to your WordPress website easily!
 
@@ -77,6 +77,15 @@ Sharify caches the sharing count for 30 minutes!
 3. screenshot-3.png 
 
 == Changelog ==
+
+= 3.0 =
+
+* Performance Improvements - Much, much faster now
+* Removed Caching - the users' browser now requests share counts, which helps to reduce server load for your site
+* Share counts now display shorter total like 1K for 1000+, etc.
+* Added the ability to display sharing buttons on top of the psots
+* Sharing count now updates in real-time after user clicks to share a page
+* Few style tweaks
 
 = 2.5 =
 
