@@ -87,6 +87,7 @@ function activate_sharify()
 	add_option('sharify_cph_vk'				, "#32506d");
 	add_option('sharify_cpm_mail'			, "#e74c3c");
 	add_option('sharify_cph_mail'			, "#c0392b");
+	add_option('sharify_twitter_via'		, "");
 }
 register_activation_hook(__FILE__, 'activate_sharify');
 
@@ -132,6 +133,7 @@ function deactive_sharify()
 	delete_option('sharify_cph_vk');
 	delete_option('sharify_cpm_mail');
 	delete_option('sharify_cph_mail');
+	delete_option('sharify_twitter_via');
 }
 register_deactivation_hook(__FILE__, 'deactive_sharify');
 }
@@ -170,13 +172,17 @@ function sharify_display_button_buttons($sharify_buttons = "")
 {
 	$sharify_buttons .= '<div class="sharify-container">';
 	$sharify_buttons .= '<ul>';
+	
+	if (get_option('sharify_twitter_via')): 
+		$sharify_twitter_mention = " - via:" . get_option('sharify_twitter_via');
+	endif;
 
 	if ( 1 == get_option('display_button_twitter') ) 
 		$sharify_buttons .='<li class="sharify-btn-twitter">
-								<a title="Tweet on Twitter" href="https://twitter.com/intent/tweet?text='.get_the_title().' - '.get_permalink().'" onclick="window.open(this.href, \'mywin\',\'left=50,top=50,width=600,height=350,toolbar=0\'); return false;">
+								<a title="Tweet on Twitter" href="https://twitter.com/intent/tweet?text='.get_the_title().': '.get_permalink(). $sharify_twitter_mention . '" onclick="window.open(this.href, \'mywin\',\'left=50,top=50,width=600,height=350,toolbar=0\'); return false;">
 									<span class="sharify-icon"><i class="sharify sharify-twitter"></i></span>
 									<span class="sharify-title">Tweet</span>
-									<span class="sharify-count" id="twitter" data-url="'.get_permalink().'" data-text="'.get_the_title().' - " >0</span>
+									<span class="sharify-count" id="twitter" data-url="'.get_permalink().'" data-text="'.get_the_title().'" >0</span>
 								</a>
 							</li>';
 	if ( 1 == get_option('display_button_facebook') ) 

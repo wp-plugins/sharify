@@ -33,7 +33,7 @@
 	<h2 class="sharify-logo">Sharify</h2>
 	<!--Sharify main-->
 	<div class="sharify-inner">
-		<header><span class="sharify-logo-main">Sharify</span><span class="sharify-version"><a href="https://wordpress.org/plugins/sharify/changelog/" title="Checkout the changelog!">Verison 3.0</a></span></header>
+		<header><span class="sharify-logo-main">Sharify</span><span class="sharify-version"><a href="https://wordpress.org/plugins/sharify/changelog/" title="Checkout the changelog!">Verison 3.1</a></span></header>
 		<div class="sharify-main">
 			<div class="sharify-settings">
 				<!--Button Placement-->
@@ -64,6 +64,8 @@
 						<input type="text" id="color" value="<?php echo get_option('sharify_cpm_twitter'); ?>" name="sharify_cpm_twitter" class="sharify-cp color-picker" />
 						<br /><p class="sharify-version-no"><strong>Twitter Button hover color</strong></p>
 						<input type="text" id="color" value="<?php echo get_option('sharify_cph_twitter'); ?>" name="sharify_cph_twitter" class="sharify-cp color-picker" />
+						<br /><p class="sharify-version-no"><strong>Twitter Via User (with "@")</strong></p>
+						<input type="text" value="<?php echo get_option('sharify_twitter_via'); ?>" name="sharify_twitter_via"/>
 						<br />
 					</div>
 
