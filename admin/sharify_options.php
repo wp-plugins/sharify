@@ -33,7 +33,7 @@
 	<h2 class="sharify-logo">Sharify</h2>
 	<!--Sharify main-->
 	<div class="sharify-inner">
-		<header><span class="sharify-logo-main">Sharify</span><span class="sharify-version"><a href="https://wordpress.org/plugins/sharify/changelog/" title="Checkout the changelog!">Verison 3.1</a></span></header>
+		<header><span class="sharify-logo-main">Sharify</span><span class="sharify-version"><a href="https://wordpress.org/plugins/sharify/changelog/" title="Checkout the changelog!">Verison 3.2</a></span></header>
 		<div class="sharify-main">
 			<div class="sharify-settings">
 				<!--Button Placement-->
