@@ -5,7 +5,7 @@
  * Plugin URI: https://wordpress.org/plugins/sharify/
  * Description: Sharify is a fast and simple plugin for sharing buttons on WordPress. The plugin lets you display responsive sharing 
  * buttons on your WordPress website!
- * Version: 3.2
+ * Version: 3.3
  * Author: imehedidip
  * Author URI: http://twitter.com/mehedih_
  * Text Domain: sharify
@@ -58,6 +58,7 @@ function activate_sharify()
 	add_option('display_buttons_before_post', 1);
 	add_option('display_button_pocket'		, 1);
 	add_option('display_button_vkt'		    , 0);
+	add_option('display_button_wa'		    , 1);
 	add_option('sharify_twitter_btn_size'	, 0);
 	add_option('sharify_facebook_btn_size'	, 0);
 	add_option('sharify_gplus_btn_size'	    , 0);
@@ -67,6 +68,7 @@ function activate_sharify()
 	add_option('sharify_linkedin_btn_size'	, 1);
 	add_option('sharify_email_btn_size'		, 1);
 	add_option('sharify_vk_btn_size'		, 1);
+	add_option('sharify_wa_btn_size'		, 1);
 	add_option('sharify_use_gfont'			, 1);
 	add_option('sharify_remove_data'		, 1);
 	add_option('sharify_cpm_twitter'		, "#4db2ec");
@@ -85,6 +87,8 @@ function activate_sharify()
 	add_option('sharify_cph_pkt'			, "#E24207");
 	add_option('sharify_cpm_vk'				, "#45668e");
 	add_option('sharify_cph_vk'				, "#32506d");
+	add_option('sharify_cpm_wa'				, "#4dc247");
+	add_option('sharify_cph_wa'				, "#47a044");
 	add_option('sharify_cpm_mail'			, "#e74c3c");
 	add_option('sharify_cph_mail'			, "#c0392b");
 	add_option('sharify_twitter_via'		, "");
@@ -180,11 +184,13 @@ function sharify_display_button_buttons($sharify_buttons = "")
 	endif;
 
 	if ( 1 == get_option('display_button_twitter') ) 
+		$sharify_post_title = preg_replace('~[&]~', ' ', get_the_title());
+		echo $sharify_post_title;
 		$sharify_buttons .='<li class="sharify-btn-twitter">
-								<a title="Tweet on Twitter" href="https://twitter.com/intent/tweet?text='.get_the_title().': '.get_permalink(). $sharify_twitter_mention . '" onclick="window.open(this.href, \'mywin\',\'left=50,top=50,width=600,height=350,toolbar=0\'); return false;">
+								<a title="Tweet on Twitter" href="https://twitter.com/intent/tweet?text='.$sharify_post_title.': '.get_permalink(). $sharify_twitter_mention . '" onclick="window.open(this.href, \'mywin\',\'left=50,top=50,width=600,height=350,toolbar=0\'); return false;">
 									<span class="sharify-icon"><i class="sharify sharify-twitter"></i></span>
 									<span class="sharify-title">Tweet</span>
-									<span class="sharify-count" id="twitter" data-url="'.get_permalink().'" data-text="'.get_the_title().'" >0</span>
+									<span class="sharify-count" id="twitter" data-url="'.$sharify_post_title.'" data-text="'.get_the_title().'" >0</span>
 								</a>
 							</li>';
 	if ( 1 == get_option('display_button_facebook') ) 
@@ -214,6 +220,13 @@ function sharify_display_button_buttons($sharify_buttons = "")
 								<a title="Save to read later on Pocket" href="https://getpocket.com/save?url=' . urlencode(get_permalink()) . '" onclick="window.open(this.href, \'mywin\',\'left=50,top=50,width=600,height=350,toolbar=0\'); return false;">
 									<span class="sharify-icon"><i class="sharify sharify-pocket"></i></span>
 									<span class="sharify-title">Pocket</span>
+								</a>
+							</li>';
+	if ( 1 == get_option('display_button_wa') ) 
+		$sharify_buttons .= '<li class="sharify-btn-wa">
+								<a title="Share on WhatsApp" href="whatsapp://send?text='.urlencode(get_the_title()). ': '. urlencode(get_permalink()).'" data-action="share/whatsapp/share">
+									<span class="sharify-icon"><i class="sharify sharify-whatsapp"></i></span>
+									<span class="sharify-title">WhatsApp</span>
 								</a>
 							</li>';
 	if ( 1 == get_option('display_button_pinterest') ) 
