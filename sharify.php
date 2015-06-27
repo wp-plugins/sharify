@@ -5,7 +5,7 @@
  * Plugin URI: https://wordpress.org/plugins/sharify/
  * Description: Sharify is a fast and simple plugin for sharing buttons on WordPress. The plugin lets you display responsive sharing 
  * buttons on your WordPress website!
- * Version: 3.4
+ * Version: 3.4.1
  * Author: imehedidip
  * Author URI: http://twitter.com/mehedih_
  * Text Domain: sharify
@@ -185,7 +185,6 @@ function sharify_display_button_buttons($sharify_buttons = "")
 
 	if ( 1 == get_option('display_button_twitter') ) 
 		$sharify_post_title = preg_replace('~[&]~', ' ', get_the_title());
-		echo $sharify_post_title;
 		$sharify_buttons .='<li class="sharify-btn-twitter">
 								<a title="Tweet on Twitter" href="https://twitter.com/intent/tweet?text='.$sharify_post_title.': '.get_permalink(). $sharify_twitter_mention . '" onclick="window.open(this.href, \'mywin\',\'left=50,top=50,width=600,height=350,toolbar=0\'); return false;">
 									<span class="sharify-icon"><i class="sharify sharify-twitter"></i></span>
