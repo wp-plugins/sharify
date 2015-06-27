@@ -38,7 +38,7 @@ function sharify_css()
 	
 	if ( 1 == get_option('sharify_use_gfont') )
 	{
-		wp_register_style( 'sharify-font', 'http://fonts.googleapis.com/css?family=Roboto+Condensed:300', false, NULL, 'all' );
+		wp_register_style( 'sharify-font', 'https://fonts.googleapis.com/css?family=Roboto+Condensed:300', false, NULL, 'all' );
 		wp_enqueue_style('sharify-font');
 	}
 }
@@ -190,7 +190,7 @@ function sharify_display_button_buttons($sharify_buttons = "")
 								<a title="Tweet on Twitter" href="https://twitter.com/intent/tweet?text='.$sharify_post_title.': '.get_permalink(). $sharify_twitter_mention . '" onclick="window.open(this.href, \'mywin\',\'left=50,top=50,width=600,height=350,toolbar=0\'); return false;">
 									<span class="sharify-icon"><i class="sharify sharify-twitter"></i></span>
 									<span class="sharify-title">Tweet</span>
-									<span class="sharify-count" id="twitter" data-url="'.$sharify_post_title.'" data-text="'.get_the_title().'" >0</span>
+									<span class="sharify-count" id="twitter" data-url="'.get_permalink().'" data-text="'.get_the_title().'" >0</span>
 								</a>
 							</li>';
 	if ( 1 == get_option('display_button_facebook') ) 

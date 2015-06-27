@@ -33,7 +33,7 @@
 	<h2 class="sharify-logo">Sharify</h2>
 	<!--Sharify main-->
 	<div class="sharify-inner">
-		<header><span class="sharify-logo-main">Sharify</span><span class="sharify-version"><a href="https://wordpress.org/plugins/sharify/changelog/" title="Checkout the changelog!">Verison 3.3</a></span></header>
+		<header><span class="sharify-logo-main">Sharify</span><span class="sharify-version"><a href="https://wordpress.org/plugins/sharify/changelog/" title="Checkout the changelog!">Verison 3.4</a></span></header>
 		<div class="sharify-main">
 			<div class="sharify-settings">
 				<!--Button Placement-->
@@ -106,7 +106,8 @@
 					<?php wp_nonce_field('update-options'); ?>
 					<?php settings_fields('sharify');?>	
 					<div id="wa" class="sharify-setting-wrap">
-						<em>Please note that the WhatsApp button will only display for mobile devices.</em>
+						<br>
+						<em>Please note that the WhatsApp button will only display for mobile devices.</em><br>
 						<br><label><input type="checkbox" class="sharify-input" name="display_button_wa" value="1" 
 						<?php if ( 1 == get_option('display_button_wa') ) echo 'checked="checked"'; ?> /> Display WhatsApp button?</label><br />
 						<br /><label><input type="checkbox" class="sharify-input" name="sharify_wa_btn_size" value="1" 
