@@ -1,9 +1,9 @@
-﻿=== Sharify Social Share Buttons===
+=== Sharify Social Share Buttons===
 Contributors: imehedidip 
 Tags: add this, add to any, AddThis, addtoany, aim, bookmark, bookmark button, bookmarking, bookmarks, bookmarks menu, button, del.icio.us, Digg, evernote, Facebook, facebook badge, facebook button, facebook like, facebook like box, facebook meta, facebook plugin, facebook promotion, Facebook send button, facebook share, facebook share button, facebook sidebar, floating buttons, goo.gl, google, google +1, google bookmarks, google plus, google plus one, google plus share, Google share, google widget, Google+1, icon, icons, instapaper, Like, like box, like button, linkedin, links, myspace, network, online sharing, page, pages, pin, pin it, pinterest, plus one, plusone, post buttons, publish Facebook, Reddit, Share, share and enjoy, share and follow, share button, share buttons, share facebook, share links, share this, Shareaholic, sharebar, shareholic, sharethis, sharing, sharing is caring, shortcode, sociable, social, social bookmark, social bookmarking, social bookmarks, social buttons, social icons, social media, social media share, social media sharing, Social Media Widget, Social Plugins, social share, Social Share Buttons, social sharing, socialize, stumbleupon, tumblr, tweet, tweet button, twitter, twitter button, twitter share, twitter share button, wpmu, sharify
 Requires at least: 3.5
 Tested up to: 4.2.2
-Stable tag: 3.4.4
+Stable tag: 3.4.5
 
 Sharify lets you add Social Share Buttons for Twitter, Facebok, Google+ and more to your WordPress website easily!
 
@@ -41,11 +41,11 @@ Sharify comes with an admin panel where you can customize any settings you want.
 I update the plugin weekly to add new feature and fix bugs. You'll never face any problem with the plugin as we try to fix and release an update for every important bugs as soon as possible!
 
 
-If you've any problems with the plugin or would like to feedback, please <a href="http://twitter.com/mehedih_" target="_self" title="Feedback is really appreciated! ">let me know at Twitter: @mehedih</a>. Also, if you like and use the plugin, <a href="https://wordpress.org/support/view/plugin-reviews/sharify" target="_self" title="Please leave a review! :)">a review is really appreciated as well! </a>
+If you've any problems with the plugin or would like to feedback, please <a href="http://twitter.com/mehedih_" target="_self" title="Feedback is really appreciated! ">let me know at Twitter: @mehedih</a>. Also, if you like and use the plugin, <a href="https://wordpress.org/support/view/plugin-reviews/sharify" target="_self" title="Please leave a review! :)">a review is really appreciated as well! </a>
 
 
 = Thanks for using the plugin! =
- 
+ 
 
 == Installation ==
 
@@ -59,7 +59,7 @@ That's it, Sharify is now activated on your site!
 
 Download Sharify and then extract the zip file and just drop the contents in the wp-content/plugins/ directory of your WordPress installation and then activate the Plugin from Plugins page.
 
- 
+ 
 == Frequently Asked Questions ==
 
 **How to hide a sharing button?**
@@ -78,18 +78,22 @@ Sharify caches the sharing count for 30 minutes!
 
 == Changelog ==
 
+= 3.4.5 =
+
+* Tiny bug fixes
+
 = 3.4.4 =
 
 * Fixed WhatsApp issue which disables the button.
 
 = 3.4 =
 
-* Added support for HTTPS.	
+* Added support for HTTPS.  
 
 = 3.3 =
 
 * Added WhatsApp Share button for mobile devices
-* Fixed an issue where Tweet would get cut off if there is characters such as "&"		
+* Fixed an issue where Tweet would get cut off if there is characters such as "&"       
 
 = 3.2 =
 
