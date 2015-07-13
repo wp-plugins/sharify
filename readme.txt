@@ -9,7 +9,7 @@ Sharify lets you add Social Share Buttons for Twitter, Facebok, Google+ and more
 
 == Description ==
 
-<blockquote><a title="You know you want to ;)" href="http://wordpress.org/plugins/gallerify">Checkout Gallerify - a faster gallery plugin for WordPress!</a></blockquote>
+**<a title="You know you want to ;)" href="http://wordpress.org/plugins/gallerify">Checkout Gallerify - a faster gallery plugin for WordPress!</a>**
 
 Introducing Sharify, a simple and fast plugin that lets you add beautiful sharing buttons to your WordPress website!
 
