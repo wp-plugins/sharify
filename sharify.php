@@ -5,7 +5,7 @@
  * Plugin URI: https://wordpress.org/plugins/sharify/
  * Description: Sharify is a fast and simple plugin for sharing buttons on WordPress. The plugin lets you display responsive sharing 
  * buttons on your WordPress website!
- * Version: 3.4.5
+ * Version: 3.4.6
  * Author: imehedidip
  * Author URI: http://twitter.com/mehedih_
  * Text Domain: sharify
@@ -304,6 +304,8 @@ register_activation_hook(__FILE__, 'sharify_plugin_activation');
 function sharify_plugin_activation() {
   $notices= get_option('sharify_plugin_deferred_admin_notices', array());
   $notices[]= "Thanks for using Sharify! Please make sure to <a href='https://wordpress.org/support/view/plugin-reviews/sharify#postform' title='Reviews are really apperciated :)'>leave a review </a>, and <a href='http://twitter.com/mehedih_' title='Follow me on Twitter'>follow the developer </a> on Twitter for the latest updates on Sharify! And <a href='".get_bloginfo('url') . "/wp-admin/options-general.php?page=sharify"."'>click here to go to Sharify Admin Panel!</a>";
+  $notices[]= 'Also, <a title="You know you want to ;)" href="http://wordpress.org/plugins/gallerify">checkout Gallerify - a new faster gallery plugin for WordPress!</a>';
+
   update_option('sharify_plugin_deferred_admin_notices', $notices);
 }
 
