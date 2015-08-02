@@ -3,7 +3,7 @@ Contributors: imehedidip
 Tags: add this, add to any, AddThis, addtoany, aim, bookmark, bookmark button, bookmarking, bookmarks, bookmarks menu, button, del.icio.us, Digg, evernote, Facebook, facebook badge, facebook button, facebook like, facebook like box, facebook meta, facebook plugin, facebook promotion, Facebook send button, facebook share, facebook share button, facebook sidebar, floating buttons, goo.gl, google, google +1, google bookmarks, google plus, google plus one, google plus share, Google share, google widget, Google+1, icon, icons, instapaper, Like, like box, like button, linkedin, links, myspace, network, online sharing, page, pages, pin, pin it, pinterest, plus one, plusone, post buttons, publish Facebook, Reddit, Share, share and enjoy, share and follow, share button, share buttons, share facebook, share links, share this, Shareaholic, sharebar, shareholic, sharethis, sharing, sharing is caring, shortcode, sociable, social, social bookmark, social bookmarking, social bookmarks, social buttons, social icons, social media, social media share, social media sharing, Social Media Widget, Social Plugins, social share, Social Share Buttons, social sharing, socialize, stumbleupon, tumblr, tweet, tweet button, twitter, twitter button, twitter share, twitter share button, wpmu, sharify
 Requires at least: 3.5
 Tested up to: 4.2.2
-Stable tag: 3.4.6
+Stable tag: 3.5
 
 Sharify lets you add Social Share Buttons for Twitter, Facebok, Google+ and more to your WordPress website easily!
 
@@ -79,6 +79,14 @@ Sharify caches the sharing count for 30 minutes!
 3. screenshot-3.png 
 
 == Changelog ==
+
+= 3.5 =
+
+<p>It's been a while since I released a new update with new features. I'll try to prepare something for next month, with some new features. Until then, here's a bug fix update!</p>
+
+* Fixed an issue which disabled users from adding two Sharify boxes in some pages. You can now display multiple share boxes (thanks <a href="https://twitter.com/Felix_MC">Felix</a> and <a href="https://twitter.com/alexstovbur"Alex</a>)
+* Fixes spelling error for VKontakte (thanks Dima S.)
+* Fixed the bug which caused buttons to link to a wrong social network. 
 
 = 3.4.6 =
 

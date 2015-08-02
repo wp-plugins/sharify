@@ -3,7 +3,7 @@
 		height: 100% !important;
 	}
 	html{
-		background: url("<?php echo plugins_url( 'inc/admin-bg.jpg' , __FILE__ ); ?>") no-repeat center center fixed !important; 
+		background-color: #e9eaed;
 		-webkit-background-size: cover;
 		-moz-background-size: cover;
 		-o-background-size: cover;
@@ -48,6 +48,7 @@
 						<?php if ( 1 == get_option('display_buttons_before_post') ) echo 'checked="checked"'; ?> /> Display Sharify buttons at the top of posts</label> <br>
 						<br><label><input type="checkbox" class="sharify-input" name="sharify_use_gfont" value="1" 
 						<?php if ( 1 == get_option('sharify_use_gfont') ) echo 'checked="checked"'; ?> /> Load Google Font?</label><br />
+						<p class="submit"><input type="submit" class="sharify-btn" value="<?php _e('Save Changes') ?>" /></p>
 					</div>
 
 					<!--Twitter-->
@@ -67,6 +68,7 @@
 						<br /><p class="sharify-version-no"><strong>Twitter Via User (with "@")</strong></p>
 						<input type="text" value="<?php echo get_option('sharify_twitter_via'); ?>" name="sharify_twitter_via"/>
 						<br />
+						<p class="submit"><input type="submit" class="sharify-btn" value="<?php _e('Save Changes') ?>" /></p>
 					</div>
 
 					<!--Facebook-->
@@ -83,6 +85,7 @@
 						<input type="text" id="color" value="<?php echo get_option('sharify_cpm_fb'); ?>" name="sharify_cpm_fb" class="sharify-cp color-picker" />
 						<br /><p class="sharify-version-no"><strong>Facebook Button hover color</strong></p>
 						<input type="text" id="color" value="<?php echo get_option('sharify_cph_fb'); ?>" name="sharify_cph_fb" class="sharify-cp color-picker" />
+						<p class="submit"><input type="submit" class="sharify-btn" value="<?php _e('Save Changes') ?>" /></p>
 					</div>
 
 					<!--GPLUS-->
@@ -99,6 +102,7 @@
 						<input type="text" id="color" value="<?php echo get_option('sharify_cpm_gplus'); ?>" name="sharify_cpm_gplus" class="sharify-cp color-picker" />
 						<br /><p class="sharify-version-no"><strong>Google+ Button hover color</strong></p>
 						<input type="text" id="color" value="<?php echo get_option('sharify_cph_gplus'); ?>" name="sharify_cph_gplus" class="sharify-cp color-picker" />
+						<p class="submit"><input type="submit" class="sharify-btn" value="<?php _e('Save Changes') ?>" /></p>
 					</div>
 
 					<!--WhatsApp-->
@@ -117,6 +121,7 @@
 						<input type="text" id="color" value="<?php echo get_option('sharify_cpm_wa'); ?>" name="sharify_cpm_wa" class="sharify-cp color-picker" />
 						<br /><p class="sharify-version-no"><strong>WhatsApp Button hover color</strong></p>
 						<input type="text" id="color" value="<?php echo get_option('sharify_cph_wa'); ?>" name="sharify_cph_wa" class="sharify-cp color-picker" />
+						<p class="submit"><input type="submit" class="sharify-btn" value="<?php _e('Save Changes') ?>" /></p>
 					</div>
 
 					<!--LinkedIn-->
@@ -134,6 +139,7 @@
 						<br /><p class="sharify-version-no"><strong>LinkedIn Button hover color</strong></p>
 						<input type="text" id="color" value="<?php echo get_option('sharify_cph_linked'); ?>" name="sharify_cph_linked" class="sharify-cp color-picker" />
 						<br>
+						<p class="submit"><input type="submit" class="sharify-btn" value="<?php _e('Save Changes') ?>" /></p>
 					</div>
 
 					<!--Pinterest-->
@@ -150,6 +156,7 @@
 						<input type="text" id="color" value="<?php echo get_option('sharify_cpm_pin'); ?>" name="sharify_cpm_pin" class="sharify-cp color-picker" />
 						<br /><p class="sharify-version-no"><strong>Pinterest Button hover color</strong></p>
 						<input type="text" id="color" value="<?php echo get_option('sharify_cph_pin'); ?>" name="sharify_cph_pin" class="sharify-cp color-picker" />
+						<p class="submit"><input type="submit" class="sharify-btn" value="<?php _e('Save Changes') ?>" /></p>
 					</div>
 
 					<!--Reddit-->
@@ -166,6 +173,7 @@
 						<input type="text" id="color" value="<?php echo get_option('sharify_cpm_rdt'); ?>" name="sharify_cpm_rdt" class="sharify-cp color-picker" />
 						<br /><p class="sharify-version-no"><strong>Reddit Button hover color</strong></p>
 						<input type="text" id="color" value="<?php echo get_option('sharify_cph_rdt'); ?>" name="sharify_cph_rdt" class="sharify-cp color-picker" />
+						<p class="submit"><input type="submit" class="sharify-btn" value="<?php _e('Save Changes') ?>" /></p>					
 					</div>
 
 					<!--Pocket-->
@@ -182,10 +190,12 @@
 						<input type="text" id="color" value="<?php echo get_option('sharify_cpm_pkt'); ?>" name="sharify_cpm_pkt" class="sharify-cp color-picker" />
 						<br /><p class="sharify-version-no"><strong>Pocket Button hover color</strong></p>
 						<input type="text" id="color" value="<?php echo get_option('sharify_cph_pkt'); ?>" name="sharify_cph_pkt" class="sharify-cp color-picker" />
+						<p class="submit"><input type="submit" class="sharify-btn" value="<?php _e('Save Changes') ?>" /></p>
+					
 					</div>
 
 					<!--VK-->
-					<br /><div class="sharify-sec-title">VKontake</div>
+					<br /><div class="sharify-sec-title">VKontakte</div>
 					<?php wp_nonce_field('update-options'); ?>
 					<?php settings_fields('sharify');?>	
 					<div id="vk" class="sharify-setting-wrap">
@@ -194,10 +204,11 @@
 						<br /><label><input type="checkbox" class="sharify-input" name="sharify_vk_btn_size" value="1" 
 						<?php if ( 1 == get_option('sharify_vk_btn_size') ) echo 'checked="checked"'; ?> /> Display small button for VKontake?</label><br />
 
-						<p class="sharify-version-no"><strong>VKontake Button main color</strong></p>
+						<p class="sharify-version-no"><strong>VKontakte Button main color</strong></p>
 						<input type="text" id="color" value="<?php echo get_option('sharify_cpm_vk'); ?>" name="sharify_cpm_vk" class="sharify-cp color-picker" />
-						<br /><p class="sharify-version-no"><strong>VKontake Button hover color</strong></p>
+						<br /><p class="sharify-version-no"><strong>VKontakte Button hover color</strong></p>
 						<input type="text" id="color" value="<?php echo get_option('sharify_cph_vk'); ?>" name="sharify_cph_vk" class="sharify-cp color-picker" />
+						<p class="submit"><input type="submit" class="sharify-btn" value="<?php _e('Save Changes') ?>" /></p>			
 					</div>
 
 					<br /><div class="sharify-sec-title">Email</div>
@@ -213,6 +224,7 @@
 						<input type="text" id="color" value="<?php echo get_option('sharify_cpm_mail'); ?>" name="sharify_cpm_mail" class="sharify-cp color-picker" />
 						<br /><p class="sharify-version-no"><strong>Email Button hover color</strong></p>
 						<input type="text" id="color" value="<?php echo get_option('sharify_cph_mail'); ?>" name="sharify_cph_mail" class="sharify-cp color-picker" />
+						<p class="submit"><input type="submit" class="sharify-btn" value="<?php _e('Save Changes') ?>" /></p>				
 					</div>
 
 					<br /><div class="sharify-sec-title">Uninstall</div>
@@ -221,8 +233,8 @@
 					<div id="email" class="sharify-setting-wrap">
 						<br><label><input type="checkbox" class="sharify-input" name="sharify_remove_data" value="1" 
 						<?php if ( 1 == get_option('sharify_remove_data') ) echo 'checked="checked"'; ?> /> Remove Settings Data when unsinstalling? (will remove all Sharify data from database)</label><br />
+						<p class="submit"><input type="submit" class="sharify-btn" value="<?php _e('Save Changes') ?>" /></p>					
 					</div>
-				<p class="submit"><input type="submit" class="sharify-btn" value="<?php _e('Save Changes') ?>" /></p>
 			</form>	
 			</div>
 		</div>
