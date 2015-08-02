@@ -84,7 +84,7 @@ Sharify caches the sharing count for 30 minutes!
 
 <p>It's been a while since I released a new update with new features. I'll try to prepare something for next month, with some new features. Until then, here's a bug fix update!</p>
 
-* Fixed an issue which disabled users from adding two Sharify boxes in some pages. You can now display multiple share boxes (thanks <a href="https://twitter.com/Felix_MC">Felix</a> and <a href="https://twitter.com/alexstovbur"Alex</a>)
+* Fixed an issue which disabled users from adding two Sharify boxes in some pages. You can now display multiple share boxes (thanks <a href="https://twitter.com/Felix_MC">Felix</a> and <a href="https://twitter.com/alexstovbur">Alex</a>)
 * Fixes spelling error for VKontakte (thanks Dima S.)
 * Fixed the bug which caused buttons to link to a wrong social network. 
 
