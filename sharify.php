@@ -5,7 +5,7 @@
  * Plugin URI: https://wordpress.org/plugins/sharify/
  * Description: Sharify is a fast and simple plugin for sharing buttons on WordPress. The plugin lets you display responsive sharing
  * buttons on your WordPress website!
- * Version: 3.5.1
+ * Version: 3.5.2
  * Author: imehedidip
  * Author URI: http://twitter.com/mehedih_
  * Text Domain: sharify
@@ -38,7 +38,7 @@ function sharify_css()
 
 	if ( 1 == get_option('sharify_use_gfont') )
 	{
-		wp_register_style( 'sharify-font', 'https://fonts.googleapis.com/css?family=Roboto+Condensed:300', false, NULL, 'all' );
+		wp_register_style( 'sharify-font', 'https://fonts.googleapis.com/css?family=Roboto+Condensed:400', false, NULL, 'all' );
 		wp_enqueue_style('sharify-font');
 	}
 }
@@ -203,7 +203,7 @@ function sharify_display_button_buttons($sharify_buttons = "")
 	if ( 1 == get_option('display_button_google') )
 		$sharify_buttons .= '<li class="sharify-btn-gplus">
 								<a title="Share on Google+" href="http://plus.google.com/share?url=' . get_permalink() . '" onclick="window.open(this.href, \'mywin\',\'left=50,top=50,width=600,height=350,toolbar=0\'); return false;">
-									<span class="sharify-icon"><i class="sharify sharify-gplus"></i></span>
+									<span class="sharify-icon"><img src="'.plugins_url( 'icon/gplus.png', __FILE__ ).'" class="sharify googles-new-crap-logo-sharify"/	></span>
 									<span class="sharify-title">+1</span>
 								</a>
 							</li>';

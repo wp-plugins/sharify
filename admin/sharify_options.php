@@ -37,6 +37,14 @@
 		<div class="sharify-main">
 			<div class="sharify-settings">
 				<!--Button Placement-->
+				<!--Easter egg for the peeps at WinBeta.org ;)-->
+				<?php if (get_site_url() == "http://winbeta.org") {
+					echo "<h3>Hey dere guys Mehedi here from wmpu, and this is where you customize the plugin...tara!</h3><br/>";
+				} else{
+					//sleep
+				}
+
+				?>
 				<div class="sharify-sec-title">General Settings</div>
 				<form method="post" class="sharify-settings-form" action="options.php">
 					<?php wp_nonce_field('update-options'); ?>
