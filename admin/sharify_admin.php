@@ -45,6 +45,7 @@ function admin_init_sharify() {
 	register_setting('sharify', 'sharify_cph_mail');
 	register_setting('sharify', 'sharify_remove_data');
 	register_setting('sharify', 'sharify_twitter_via');
+	register_setting('sharify', 'sharify_custom_css');
 }
 
 //Add Options Page

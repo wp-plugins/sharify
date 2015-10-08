@@ -5,7 +5,7 @@
  * Plugin URI: https://wordpress.org/plugins/sharify/
  * Description: Sharify is a fast and simple plugin for sharing buttons on WordPress. The plugin lets you display responsive sharing
  * buttons on your WordPress website!
- * Version: 3.5.2
+ * Version: 3.6.1
  * Author: imehedidip
  * Author URI: http://twitter.com/mehedih_
  * Text Domain: sharify
@@ -92,6 +92,7 @@ function activate_sharify()
 	add_option('sharify_cpm_mail'			, "#e74c3c");
 	add_option('sharify_cph_mail'			, "#c0392b");
 	add_option('sharify_twitter_via'		, "");
+	add_option('sharify_custom_css'		, "");
 }
 register_activation_hook(__FILE__, 'activate_sharify');
 
@@ -138,6 +139,7 @@ function deactive_sharify()
 	delete_option('sharify_cpm_mail');
 	delete_option('sharify_cph_mail');
 	delete_option('sharify_twitter_via');
+	delete_option('sharify_custom_css');
 }
 register_deactivation_hook(__FILE__, 'deactive_sharify');
 }
@@ -174,6 +176,9 @@ function sharify_catch_that_image()
 //Sharify buttons
 function sharify_display_button_buttons($sharify_buttons = "")
 {
+	$getsharify_post_title = get_the_title();
+    $sharify_post_title =  preg_replace("/[^ \w]+/", $getsharify_post_title);
+
 	$sharify_buttons .= '<div class="sharify-container">';
 	$sharify_buttons .= '<ul>';
 
@@ -184,7 +189,6 @@ function sharify_display_button_buttons($sharify_buttons = "")
 	endif;
 
 	if ( 1 == get_option('display_button_twitter') )
-		$sharify_post_title = get_the_title();
 		$sharify_buttons .='<li class="sharify-btn-twitter">
 								<a title="Tweet on Twitter" href="https://twitter.com/intent/tweet?text='.$sharify_post_title.': '.get_permalink(). $sharify_twitter_mention . '" onclick="window.open(this.href, \'mywin\',\'left=50,top=50,width=600,height=350,toolbar=0\'); return false;">
 									<span class="sharify-icon"><i class="sharify sharify-twitter"></i></span>
@@ -203,7 +207,7 @@ function sharify_display_button_buttons($sharify_buttons = "")
 	if ( 1 == get_option('display_button_google') )
 		$sharify_buttons .= '<li class="sharify-btn-gplus">
 								<a title="Share on Google+" href="http://plus.google.com/share?url=' . get_permalink() . '" onclick="window.open(this.href, \'mywin\',\'left=50,top=50,width=600,height=350,toolbar=0\'); return false;">
-									<span class="sharify-icon"><img src="'.plugins_url( 'icon/gplus.png', __FILE__ ).'" class="sharify googles-new-crap-logo-sharify"/	></span>
+									<span class="sharify-icon"><i class="sharify sharify-gplus"></i></span>
 									<span class="sharify-title">+1</span>
 								</a>
 							</li>';
@@ -296,7 +300,7 @@ add_action( 'admin_enqueue_scripts', 'load_sharify_wp_admin_style' );
 register_activation_hook(__FILE__, 'sharify_plugin_activation');
 function sharify_plugin_activation() {
   $notices= get_option('sharify_plugin_deferred_admin_notices', array());
-  $notices[]= "Thanks for using Sharify! Please make sure to <a href='https://wordpress.org/support/view/plugin-reviews/sharify#postform' title='Reviews are really apperciated :)'>leave a review </a>, and <a href='http://twitter.com/mehedih_' title='Follow me on Twitter'>follow the developer </a> on Twitter for the latest updates on Sharify! And <a href='".get_bloginfo('url') . "/wp-admin/options-general.php?page=sharify"."'>click here to go to Sharify Admin Panel!</a>";
+  $notices[]= "Thanks for using Sharify! Please make sure to <a href='https://wordpress.org/support/view/plugin-reviews/sharify#postform' title='Reviews are really apperciated :)'>leave a review </a>, and <a href='http://twitter.com/sharifyplugin' title='Follow us on Twitter'>follow us</a> on Twitter for the latest updates on Sharify! And <a href='".get_bloginfo('url') . "/wp-admin/options-general.php?page=sharify"."'>click here to go to Sharify Admin Panel!</a>";
   update_option('sharify_plugin_deferred_admin_notices', $notices);
 }
 

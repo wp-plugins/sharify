@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'sharify';
-  src: url('../font/sharify.eot?73721200');
-  src: url('../font/sharify.eot?73721200#iefix') format('embedded-opentype'),
-       url('../font/sharify.woff?73721200') format('woff'),
-       url('../font/sharify.ttf?73721200') format('truetype'),
-       url('../font/sharify.svg?73721200#sharify') format('svg');
+  src: url('../font/sharify.eot?35292209');
+  src: url('../font/sharify.eot?35292209#iefix') format('embedded-opentype'),
+       url('../font/sharify.woff?35292209') format('woff'),
+       url('../font/sharify.ttf?35292209') format('truetype'),
+       url('../font/sharify.svg?35292209#sharify') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -14,7 +14,7 @@
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
     font-family: 'sharify';
-    src: url('../font/sharify.svg?73721200#sharify') format('svg');
+    src: url('../font/sharify.svg?35292209#sharify') format('svg');
   }
 }
 */
@@ -63,4 +63,3 @@
 .sharify-reddit:before { content: '\e806'; } /* '' */
 .sharify-pocket:before { content: '\e807'; } /* '' */
 .sharify-vk:before { content: '\e808'; } /* '' */
-.sharify-whatsapp:before { content: '\e809'; } /* '' */

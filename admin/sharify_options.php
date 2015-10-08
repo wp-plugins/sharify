@@ -33,7 +33,7 @@
 	<h2 class="sharify-logo">Sharify</h2>
 	<!--Sharify main-->
 	<div class="sharify-inner">
-		<header><span class="sharify-logo-main">Sharify</span><span class="sharify-version"><a href="https://wordpress.org/plugins/sharify/changelog/" title="Checkout the changelog!">Verison 3.4.4</a></span></header>
+		<header><span class="sharify-logo-main">Sharify</span><span class="sharify-version"><a href="https://wordpress.org/plugins/sharify/changelog/" title="Checkout the changelog!">Verison 3.6.1</a></span></header>
 		<div class="sharify-main">
 			<div class="sharify-settings">
 				<!--Button Placement-->
@@ -45,6 +45,7 @@
 				}
 
 				?>
+				<div class="sharify-sec-title"><a href="https://twitter.com/sharifyplugin">Follow us on Twitter to get support!</a></div><br/>
 				<div class="sharify-sec-title">General Settings</div>
 				<form method="post" class="sharify-settings-form" action="options.php">
 					<?php wp_nonce_field('update-options'); ?>
@@ -56,6 +57,9 @@
 						<?php if ( 1 == get_option('display_buttons_before_post') ) echo 'checked="checked"'; ?> /> Display Sharify buttons at the top of posts</label> <br>
 						<br><label><input type="checkbox" class="sharify-input" name="sharify_use_gfont" value="1" 
 						<?php if ( 1 == get_option('sharify_use_gfont') ) echo 'checked="checked"'; ?> /> Load Google Font?</label><br />
+						<br /><p class="sharify-version-no"><strong>Custom CSS Styles</strong></p>
+						<textarea rows="4" cols="50" name="sharify_custom_css"><?php echo get_option('sharify_custom_css'); ?></textarea>
+						<br />
 						<p class="submit"><input type="submit" class="sharify-btn" value="<?php _e('Save Changes') ?>" /></p>
 					</div>
 
