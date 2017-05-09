@@ -19,7 +19,7 @@ if ( 1 == get_option('sharify_twitter_btn_size') ){
 else{
 	$twitter_btn_size = '20%';
 	$twitter_btn_icon_float = 'left;';
-	$facebook_btn_icon_align = '';
+	$twitter_btn_icon_align = '';
 	$twitter_btn_title = '';
 	$twitter_btn_icon_count = 'block;';
 	$twitter_btn_icon_padding = '10px;';
